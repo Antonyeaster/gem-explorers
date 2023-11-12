@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gemexplorers.herokuapp.com', '8000-antonyeaster-gem-explore-b2vel7wqpb.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['gem-explorers-7dfdfea9b382.herokuapp.com',
+                 '8000-antonyeaster-gem-explore-b2vel7wqpb.us2.codeanyapp.com']
 
 
 # Application definition
