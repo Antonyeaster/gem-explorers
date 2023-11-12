@@ -1,1 +1,1 @@
-web: gunicorngemexplorers.wsgi
+web: gunicorn gemexplorers.wsgi
