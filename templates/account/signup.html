@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <form class="signup card p-5 bg-light form-control" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            <form class="signup card p-5 bg-light" id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
