@@ -3,3 +3,13 @@
     color: white;
     text-decoration: none;
 }
+
+.btn-like {
+    color: #0233d3;
+    border: none;
+    background: transparent;
+}
+
+body{
+    background-color: #d3a560;
+}
