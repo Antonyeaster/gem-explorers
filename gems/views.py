@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Post
 from .forms import CommentForm
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -13,7 +14,7 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
-    
+
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -50,8 +51,12 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(
+                request, 'Comment successfully submitted and awaiting approval')
         else:
             comment_form = CommentForm()
+            messages.error(
+                request, 'Comment successfully submitted and awaiting approval')
 
         return render(
             request,
@@ -77,4 +82,3 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('location_detail', args=[slug]))
-

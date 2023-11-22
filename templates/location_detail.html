@@ -49,13 +49,15 @@
                             <!-- The number of likes goes before the closing strong tag -->
                             <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
+                        <strong><small>Like</small></strong>
                     </div>
                     <!-- Comments icon with total comments number displayed-->
-                    <div class="col-1">
+                    <div class="col-2">
                         {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
+                        <strong class="text-secondary"><i class="far fa-comments white"></i>
                            {{ total_comments }}</strong>
                         {% endwith %}
+                        <strong><small>Comments</small></strong>
                     </div>
                 </div>
             </div>
