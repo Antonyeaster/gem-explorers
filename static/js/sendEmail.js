@@ -8,9 +8,12 @@ function sendMail(contactIdeaForm) {
     .then(
         function(response) {
             console.log("SUCCESS", response);
+            document.getElementById('successfulForm').style.display = 'block';
+            contactIdeaForm.reset();
         },
         function(error) {
             console.log("FAILED", error);
+            document.getElementById('unsuccessfulForm').style.display = 'block';
         });
     return false;
 }
