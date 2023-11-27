@@ -34,6 +34,9 @@ class Post(models.Model):
         return self.likes.count()
 
 
+""" Post Comments"""
+
+
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
@@ -48,3 +51,73 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment {self.body} by {self.name}'
+
+
+"""Webinar"""
+
+
+STATUS = ((0, "Draft"), (1, "Published"))
+
+
+class Webinar(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    speaker = models.CharField(max_length=100)
+    description = models.TextField()
+    featured_image = CloudinaryField('image', default='placeholder')
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.title
+
+
+"""Webinar booking time (No double bookings)"""
+
+
+class Timestamp(models.Model):
+    webinar = models.ForeignKey(
+        Webinar, on_delete=models.CASCADE, related_name='approved_webinar')
+    date_and_time = models.DateTimeField()
+
+    class Meta:
+        ordering = ['date_and_time']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['webinar', 'date_and_time'],
+                name='unique_webinar_date_and_time_constraint'
+            ),
+        ]
+
+    def __str__(self):
+        return f'{self.webinar.title} scheduled for {self.date_and_time}'
+
+
+"""Booked webinar (No double bookings)"""
+
+
+class Booking(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_bookings')
+    webinar = models.ForeignKey(
+        Timestamp, on_delete=models.CASCADE, related_name='webinar_bookings')
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['webinar', 'user'],
+                name='unique_webinar_user_constraint'
+            ),
+        ]
+
+    def __str__(self):
+        return (
+            f'{self.user.username} booked '
+            f'{self.webinar.webinar.title} '
+            f'on {self.webinar.date_and_time}'
+        )
