@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Post title and author displayed with location image -->
+                <h1>{{ webinar.title }}</h1>
+                <p>{{ webinar.speaker }}</p>
+                <p>{{ webinar.description }}</p>
+            </div>
+            <!-- Location image with backup image if post image not supplied -->
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                {% if "placeholder" in webinar.featured_image.url %}
+                <img src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
+                    width="100%">
+                {% else %}
+                <img src=" {{ webinar.featured_image.url }}" width="100%">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
