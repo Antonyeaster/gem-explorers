@@ -22,6 +22,10 @@
                                 </div>
 
                             </div>
+                            <a href="{% url 'webinar' webinar.slug %}" class="webinar-link">
+                                <h2 class="card-title">{{ webinar.title }}</h2>
+                                <p class="card-text">{{ webinar.description }}</p>
+                            </a>
                             <hr>
                             <p class="card-text text-muted h6">
                                 {{ webinar.created_on }}

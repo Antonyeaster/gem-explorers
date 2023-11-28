@@ -46,7 +46,7 @@
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Webinars</a>
+                    <a class="nav-link" href="{% url 'webinar' %}">Webinars</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item active">

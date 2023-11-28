@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.views import generic, View
-from .models import Post
+from .models import Post, Webinar
 from .forms import CommentForm
 from django.contrib import messages
 
@@ -13,10 +13,21 @@ def about(request):
     return render(request, 'about.html')
 
 
+def webinar(request):
+    return render(request, 'webinars.html')
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
+    paginate_by = 4
+
+
+class WebinarList(generic.ListView):
+    model = Webinar
+    queryset = Webinar.objects.filter(status=1).order_by('-created_on')
+    template_name = 'webinars.html'
     paginate_by = 4
 
 
