@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Webinar
+from .models import Post, Comment, Webinar, Booking, Timestamp
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -21,6 +21,24 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'webinar', 'approved')
+    list_filter = ('webinar', 'approved')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_bookings']
+
+    def approve_bookings(self, request, queryset):
+        queryset.update(approved=True)
+
+
+@admin.register(Timestamp)
+class TimestampAdmin(SummernoteModelAdmin):
+    list_display = ('webinar', 'date_and_time')
+    search_fields = ('title', 'speaker', 'content')
+    summernote_fields = ('content')
 
 
 @admin.register(Webinar)
