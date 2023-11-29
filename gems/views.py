@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.http import HttpResponseRedirect
 from django.views import generic, View
-from .models import Post, Webinar, Timestamp
+from .models import Post, Webinar, Timestamp, Booking
 from .forms import CommentForm
 from django.contrib import messages
+from django.db import IntegrityError
 
 
 """About Page """
@@ -42,7 +43,40 @@ class WebinarDetail(View):
             'webinar': webinar,
             'timestamps': timestamps
         }
-    )
+        )
+
+
+class Book(View):
+
+    def get(self, request, timestamp_id):
+        timestamp = get_object_or_404(Timestamp, id=timestamp_id)
+        context = {
+            'timestamp': timestamp
+        }
+
+        return render(request, 'booked-in.html', context)
+    
+    def post(self, request, timestamp_id):
+        timestamp = get_object_or_404(Timestamp, id=timestamp_id)
+
+        try:
+            # Check users authentication, if yes create a new booking
+            if request.user.is_authenticated:
+                booking = Booking.objects.create(
+                    user=request.user,
+                    webinar=timestamp,
+                    approved=False,
+                    status='pending'
+                    )
+                return render(request, 'my_booking.html')
+            else:
+                # if not authenticated, send user to login page
+                return redirect('account_login')
+        except IntegrityError:
+            # Handle IntegrityError (prevent double booking attempt)
+            return render(
+                request, 'booking_error.html', {
+                    'error_message': 'Booking already exists.'})
 
 
 class PostDetail(View):
@@ -84,11 +118,13 @@ class PostDetail(View):
             comment.post = post
             comment.save()
             messages.success(
-                request, 'Comment successfully submitted and awaiting approval')
+                request, 'Comment successfully submitted'
+                'and awaiting approval.')
         else:
             comment_form = CommentForm()
             messages.error(
-                request, 'Comment successfully submitted and awaiting approval')
+                request, 'Unable to submit your'
+                'comment at this time, please try again.')
 
         return render(
             request,

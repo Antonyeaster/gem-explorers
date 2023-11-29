@@ -6,7 +6,7 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for webinar in webinar_list %}
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
@@ -22,15 +22,12 @@
                                 </div>
 
                             </div>
+                            <h2 class="card-title">{{ webinar.title }}</h2>
+                            <p class="card-text">{{ webinar.description }}</p>
                             <a href="{% url 'webinar_detail' webinar.slug %}" class="webinar-link">
-                                <h2 class="card-title">{{ webinar.title }}</h2>
-                                <p class="card-text">{{ webinar.description }}</p>
+                                <button type="submit">Book</button>
                             </a>
                             <hr>
-                            <p class="card-text text-muted h6">
-                                {{ webinar.created_on }}
-                            </p>
-
                         </div>
                     </div>
                 </div>
