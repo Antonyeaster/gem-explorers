@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<h1>My Bookings</h1>
+{% if booking_approved %}
+<h2>Approved Bookings</h2>
+<ul>
+    {% for booking in booking_approved %}
+    <li>{{ booking.webinar }} - {{ booking.webinar.date_and_time }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No approved bookings found.</p>
+{% endif %}
 {% endblock content %}

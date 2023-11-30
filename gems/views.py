@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
 from .models import Post, Webinar, Timestamp, Booking
 from .forms import CommentForm
@@ -66,17 +66,30 @@ class Book(View):
                     user=request.user,
                     webinar=timestamp,
                     approved=False,
-                    status='pending'
                     )
-                return render(request, 'my_booking.html')
+                return render(request, 'my_bookings.html')
             else:
                 # if not authenticated, send user to login page
                 return redirect('account_login')
         except IntegrityError:
             # Handle IntegrityError (prevent double booking attempt)
-            return render(
-                request, 'booking_error.html', {
-                    'error_message': 'Booking already exists.'})
+            error_message = 'Booking already exists.'
+            return HttpResponse(error_message, status=400)
+
+
+class MyBooking(View):
+
+    def get(self, request):
+        booking_approved = Booking.objects.filter(user=request.user, approved=True)
+        if booking_approved:
+            return render(request, 'my_bookings.html', {
+                'booking_approved': booking_approved,
+                'approved': True,
+            })
+        else:
+            return render(request, 'my_bookings.html', {
+                'approved': False,
+           })
 
 
 class PostDetail(View):

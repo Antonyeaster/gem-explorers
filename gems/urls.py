@@ -9,6 +9,7 @@ urlpatterns = [
     path('webinar/<slug:slug>/',
          views.WebinarDetail.as_view(), name='webinar_detail'),
     path('book/<str:timestamp_id>/', views.Book.as_view(), name='book'),
+    path('my-bookings/', views.MyBooking.as_view(), name='my-bookings'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='location_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
 ]
