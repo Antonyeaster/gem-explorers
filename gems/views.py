@@ -67,20 +67,24 @@ class Book(View):
                     webinar=timestamp,
                     approved=False,
                     )
-                return render(request, 'my_bookings.html')
+                return render(request, 'my_bookings.html', {
+                    'pending_approval': True
+                })
             else:
                 # if not authenticated, send user to login page
                 return redirect('account_login')
         except IntegrityError:
             # Handle IntegrityError (prevent double booking attempt)
-            error_message = 'Booking already exists.'
-            return HttpResponse(error_message, status=400)
+            return render(request, 'my_bookings.html', {
+                'already_booked': True,
+            })
 
 
 class MyBooking(View):
 
     def get(self, request):
-        booking_approved = Booking.objects.filter(user=request.user, approved=True)
+        booking_approved = Booking.objects.filter(
+            user=request.user, approved=True)
         if booking_approved:
             return render(request, 'my_bookings.html', {
                 'booking_approved': booking_approved,

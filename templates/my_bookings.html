@@ -1,15 +1,32 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>My Bookings</h1>
-{% if booking_approved %}
-<h2>Approved Bookings</h2>
-<ul>
-    {% for booking in booking_approved %}
-    <li>{{ booking.webinar }} - {{ booking.webinar.date_and_time }}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No approved bookings found.</p>
-{% endif %}
+{% extends "base.html" %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        {% if already_booked %}
+            <h1>You've already booked this Webinar</h1> 
+                <p>Please wait for Admin to approve the
+                booking. This is usually done within 24 hours from when the booking was
+                made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a>
+        </p>
+        {% elif pending_approval %}
+            <h1>Your booking is pending approval</h1>
+            <p>Please wait for Admin to approve the
+                booking. This is usually done within 24 hours from when the booking was
+                made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a>
+        {% elif approved %}
+    <h1>My Bookings</h1>
+      <h2>Approved Bookings</h2>
+      <ul>
+            {% for booking in booking_approved %}
+            <li>
+            {{ booking.webinar.webinar.title }} - {{ booking.webinar.date_and_time }}
+            </li>
+            {% endfor %}
+      </ul>
+      {% else %}
+      <p>No approved bookings found.</p>
+      {% endif %} 
+    </div>
+  </div>
+</div>
 {% endblock content %}
