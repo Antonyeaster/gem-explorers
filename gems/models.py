@@ -118,6 +118,6 @@ class Booking(models.Model):
     def __str__(self):
         return (
             f'{self.user.username} booked '
-            f'{self.webinar.webinar.title} '
+            f'{self.title} '
             f'on {self.webinar.date_and_time}'
         )
