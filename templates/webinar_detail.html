@@ -32,9 +32,13 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ webinar.title }}</h5>
                     <p class="card-text">Available Date and time: <strong>{{ timestamp.date_and_time }}</strong></p>
-                    <a href="{% url 'book' timestamp.id %}">
-                        <button class="btn btn-primary" type="submit">Book</button>
-                    </a>
+                    <form method="post" action="{% url 'book' timestamp.id %}">
+                        
+                        {% csrf_token %}
+
+                    <button class="btn btn-primary" type="submit">Book</button>
+                    
+                    </form>
                 </div>
             </div>
             {% endfor %}
