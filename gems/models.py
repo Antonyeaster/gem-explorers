@@ -83,6 +83,7 @@ class Timestamp(models.Model):
     webinar = models.ForeignKey(
         Webinar, on_delete=models.CASCADE, related_name='approved_webinar')
     date_and_time = models.DateTimeField()
+    booked = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['date_and_time']
@@ -105,6 +106,7 @@ class Booking(models.Model):
         User, on_delete=models.CASCADE, related_name='user_bookings')
     webinar = models.ForeignKey(
         Timestamp, on_delete=models.CASCADE, related_name='webinar_bookings')
+    number_of_viewers = models.PositiveIntegerField(default=1)
     approved = models.BooleanField(default=False)
 
     class Meta:
@@ -118,6 +120,6 @@ class Booking(models.Model):
     def __str__(self):
         return (
             f'{self.user.username} booked '
-            f'{self.title} '
+            f'{self.webinar} '
             f'on {self.webinar.date_and_time}'
         )

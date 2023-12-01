@@ -62,11 +62,13 @@ class Book(View):
         try:
             # Check users authentication, if yes create a new booking
             if request.user.is_authenticated:
+                total_viewers = int(request.POST.get('total_viewers', 1))
                 booking = Booking.objects.create(
                     user=request.user,
                     webinar=timestamp,
                     approved=False,
-                )
+                    number_of_viewers=total_viewers)
+                    
                 return render(request, 'my_bookings.html', {
                     'pending_approval': True
                 })
@@ -80,6 +82,16 @@ class Book(View):
             })
 
 
+class UpdateBooking(View):
+    def post(self, request, booking_id):
+        booking_update = get_object_or_404(
+            Booking, id=booking_id, user=request.user, approved=True)
+        total_viewers = int(request.POST.get('total_viewers', 1))
+        booking_update.number_of_viewers = total_viewers
+        booking_update.save()
+        return redirect('my-bookings')
+
+        
 class MyBooking(View):
 
     def get(self, request):
@@ -94,7 +106,7 @@ class MyBooking(View):
             return render(request, 'my_bookings.html', {
                 'approved': False,
             })
-    
+
     def post(self, request, booking_id):
         booking_delete = get_object_or_404(
             Booking, id=booking_id, user=request.user, approved=True)
