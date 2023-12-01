@@ -54,8 +54,8 @@ class Book(View):
             'timestamp': timestamp
         }
 
-        return render(request, 'booked-in.html', context)
-    
+        return render(request, 'my_bookings.html', context)
+
     def post(self, request, timestamp_id):
         timestamp = get_object_or_404(Timestamp, id=timestamp_id)
 
@@ -66,7 +66,7 @@ class Book(View):
                     user=request.user,
                     webinar=timestamp,
                     approved=False,
-                    )
+                )
                 return render(request, 'my_bookings.html', {
                     'pending_approval': True
                 })
@@ -93,7 +93,13 @@ class MyBooking(View):
         else:
             return render(request, 'my_bookings.html', {
                 'approved': False,
-           })
+            })
+    
+    def post(self, request, booking_id):
+        booking_delete = get_object_or_404(
+            Booking, id=booking_id, user=request.user, approved=True)
+        booking_delete.delete()
+        return redirect('my-bookings')
 
 
 class PostDetail(View):

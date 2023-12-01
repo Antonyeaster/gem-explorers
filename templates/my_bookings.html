@@ -1,32 +1,59 @@
 {% extends "base.html" %} {% block content %}
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-        {% if already_booked %}
-            <h1>You've already booked this Webinar</h1> 
-                <p>Please wait for Admin to approve the
-                booking. This is usually done within 24 hours from when the booking was
-                made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a>
-        </p>
-        {% elif pending_approval %}
-            <h1>Your booking is pending approval</h1>
-            <p>Please wait for Admin to approve the
-                booking. This is usually done within 24 hours from when the booking was
-                made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a>
-        {% elif approved %}
-    <h1>My Bookings</h1>
-      <h2>Approved Bookings</h2>
-      <ul>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>My Bookings</h1>
+            {% if already_booked %}
+            <h1>You've already booked this Webinar</h1>
+            <p>Please wait for Admin to approve the booking. This is usually done within 24 hours from when the booking
+                was made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a> </p>
+            {% elif pending_approval %}
+            <h1>Thank you for your booking!</h1>
+            <p>Your booking is pending approval. Please wait for Admin to approve the booking. This is usually done within 24 hours from when the booking
+                was made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a> </p>
+            {% elif approved %}
+            <h2>Approved Bookings</h2>
             {% for booking in booking_approved %}
-            <li>
-            {{ booking.webinar.webinar.title }} - {{ booking.webinar.date_and_time }}
-            </li>
+            <!-- Booked in cards -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ booking.webinar.webinar.title }}</h5>
+                    <p class="card-text">Booked for: <strong>{{ booking.webinar.date_and_time }}</strong></p>
+                
+                <button type="button" class="btn btn-danger" data-toggle="modal"
+                    data-target="#confirmDeleteModal{{ booking.id }}">Delete</button>
+                </div>
+                <!-- Delete modal -->
+                <div class="modal fade" id="confirmDeleteModal{{ booking.id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmDeleteModalLabel">Are you sure you want to delete your booking?
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Confirming the deletion will permanently remove this booking. Do you want to proceed?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <form method="post" action="{% url 'booking_delete' booking.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-      </ul>
-      {% else %}
-      <p>No approved bookings found.</p>
-      {% endif %} 
+            {% else %}
+            <p>No approved bookings found.</p>
+            {% endif %}
+        </div>
     </div>
-  </div>
 </div>
 {% endblock content %}
