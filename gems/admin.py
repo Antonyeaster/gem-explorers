@@ -25,10 +25,13 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('user', 'webinar', 'approved')
+    list_display = ('user_name', 'webinar', 'approved', 'number_of_viewers')
     list_filter = ('webinar', 'approved')
-    search_fields = ('name', 'email', 'body')
+    search_fields = ('user__username', 'user__email', 'webinar__title')
     actions = ['approve_bookings']
+
+    def user_name(self, obj):
+        return obj.user.username
 
     def approve_bookings(self, request, queryset):
         queryset.update(approved=True)
