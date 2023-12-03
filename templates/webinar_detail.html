@@ -1,65 +1,77 @@
 {% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 
 <div class="container-fluid">
-    <div class="row">
-        <!-- Main Content with Information -->
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{ webinar.title }}</h5>
-                    <div class="d-none d-md-block">
-                        {% if "placeholder" in webinar.featured_image.url %}
-                        <img src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
-                            class="img-fluid" alt="Webinar Image" />
-                        {% else %}
-                        <img src="{{ webinar.featured_image.url }}" class="img-fluid" alt="Webinar Image" />
-                        {% endif %}
-                    </div>
-                    <p class="card-text mt-3">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde,
-                        sapiente nemo culpa officia ipsum reiciendis blanditiis consectetur
-                        ea enim quos in veritatis esse id perferendis ad omnis rem
-                        voluptatem numquam?
-                    </p>
-                </div>
-            </div>
+  <div class="row">
+    <!-- Main Content with Information -->
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ webinar.title }}</h5>
+          <div class="d-none d-md-block">
+            {% if "placeholder" in webinar.featured_image.url %}
+            <img
+              src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
+              class="img-fluid"
+              alt="Webinar Image"
+            />
+            {% else %}
+            <img
+              src="{{ webinar.featured_image.url }}"
+              class="img-fluid"
+              alt="Webinar Image"
+            />
+            {% endif %}
+          </div>
+          <p class="card-text mt-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde,
+            sapiente nemo culpa officia ipsum reiciendis blanditiis consectetur
+            ea enim quos in veritatis esse id perferendis ad omnis rem
+            voluptatem numquam?
+          </p>
         </div>
-
-        <!-- Sidebar with Cards -->
-        <div class="col-md-4">
-            {% for timestamp in timestamps %}
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ webinar.title }}</h5>
-                    <p class="card-text">Available Date and time: <strong>{{ timestamp.date_and_time }}</strong></p>
-                    <form method="post" action="{% url 'book' timestamp.id %}">
-                        
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="total_viewers">Number of Viewers:</label>
-                            <select class="dropdown-select" id="total_viewers" name="total_viewers">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                        </div>
-
-                    <button class="btn btn-primary" type="submit">Book</button>
-                    
-                    </form>
-                </div>
-            </div>
-            {% endfor %}
-            <!-- Add more cards as needed -->
-        </div>
+      </div>
     </div>
+
+    <!-- Sidebar with Cards -->
+    <div class="col-md-4">
+      {% for timestamp in timestamps %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ webinar.title }}</h5>
+          <p class="card-text">
+            Available Date and time:
+            <strong>{{ timestamp.date_and_time }}</strong>
+          </p>
+          <form method="post" action="{% url 'book' timestamp.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="total_viewers">Number of Viewers:</label>
+              <select
+                class="dropdown-select"
+                id="total_viewers"
+                name="total_viewers"
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Book</button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- Add more cards as needed -->
+    </div>
+  </div>
 </div>
 
 {% endblock content %}
