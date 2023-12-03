@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
 <div class="container-fluid">
   <div class="row">
@@ -64,6 +65,7 @@
           </div>
         </div>
       </div>
+    Don't have an account? <a class="link btn btn-primary right" href="{% url 'account_signup' %}">Sign up here</a>
     </div>
   </div>
 </div>
