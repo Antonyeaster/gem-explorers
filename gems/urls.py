@@ -5,6 +5,7 @@ from django.urls import path
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
     path('webinar/', views.WebinarList.as_view(), name='webinar'),
     path('webinar/<slug:slug>/',
          views.WebinarDetail.as_view(), name='webinar_detail'),

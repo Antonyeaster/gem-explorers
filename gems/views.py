@@ -7,15 +7,25 @@ from django.contrib import messages
 from django.db import IntegrityError
 
 
-"""About Page """
+"""About Page"""
 
 
 def about(request):
     return render(request, 'about.html')
 
 
+"""Webinar list page"""
+
+
 def webinar(request):
     return render(request, 'webinars.html')
+
+
+"""Contact us page"""
+
+
+def contact(request):
+    return render(request, 'contact_us.html')
 
 
 class PostList(generic.ListView):
@@ -68,7 +78,7 @@ class Book(View):
                     webinar=timestamp,
                     approved=False,
                     number_of_viewers=total_viewers)
-                    
+
                 return render(request, 'my_bookings.html', {
                     'pending_approval': True
                 })
@@ -91,7 +101,7 @@ class UpdateBooking(View):
         booking_update.save()
         return redirect('my-bookings')
 
-        
+
 class MyBooking(View):
 
     def get(self, request):

@@ -70,6 +70,9 @@
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
           <li class="nav-item active">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+          <li class="nav-item active">
             <a class="nav-link" href="{% url 'webinar' %}">Webinars</a>
           </li>
           {% if user.is_authenticated %}
@@ -99,7 +102,7 @@
               <a href="{% url 'account_signup' %}">Register</a>
             </button>
             {% endif %} {% if user.is_superuser %}
-            <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
+            <button type="button" class="btn btn-success px-3 me-2 mr-2 ml-2">
               <a aria-current="Admin page" href="{% url 'admin:index' %}"
                 >Admin</a
               >
@@ -122,9 +125,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="signOutModalLabel">
-              Sign Out?
-            </h5>
+            <h5 class="modal-title" id="signOutModalLabel">Sign Out?</h5>
             <button
               type="button"
               class="close"
@@ -134,9 +135,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            Are you sure you want to sign out?
-          </div>
+          <div class="modal-body">Are you sure you want to sign out?</div>
           <div class="modal-footer">
             <button
               type="button"
@@ -173,101 +172,10 @@
       </div>
     </div>
     <!-- Navbar -->
-    <main>
-        {% block content %} 
-        
-        
-        {% endblock content %} 
-    </main>
+    <main>{% block content %} {% endblock content %}</main>
 
     <!--Footer-->
     <footer class="bg-dark text-center text-white mt-auto">
-      <section class="container-fluid mt-4">
-        <div class="row bg-color-contact justify-content-center">
-          <div class="col-lg-6">
-            <h2 class="contact-heading uppercase text-center">Contact us</h2>
-            <p class="text-center">
-              We would love to know if you have any locations you'd like us to
-              post about, fill out the form below and we'll make it happen.
-              Alternatively, if you have any questions or feedback, let us know
-              in the form below and we'll get back to you.
-            </p>
-
-            <div class="center-form">
-              <form onsubmit="return sendMail(this);">
-                <input
-                  type="text"
-                  name="name"
-                  id="fullname"
-                  class="form-control"
-                  placeholder="Name"
-                  required
-                />
-                <input
-                  type="email"
-                  name="emailaddress"
-                  id="emailaddress"
-                  class="form-control"
-                  placeholder="Email"
-                  required
-                />
-                <input
-                  type="text"
-                  name="idea"
-                  id="location-idea"
-                  class="form-control"
-                  placeholder="Location Idea (Optional)"
-                />
-                <textarea
-                  rows="5"
-                  name="message"
-                  id="message"
-                  class="form-control"
-                  placeholder="Message/Idea Description"
-                  required
-                ></textarea>
-                <div class="form-row text-center">
-                  <div class="col mt-4 mb-4">
-                    <button type="submit" class="btn btn-primary px-5">
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </form>
-              <div
-                id="successfulForm"
-                class="alert alert-success alert-dismissable"
-                style="display: none"
-              >
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-hidden="true"
-                >
-                  &times;
-                </button>
-                Thank you, you're form has been submitted successfully.
-              </div>
-              <div
-                id="unsuccessfulForm"
-                class="alert alert-danger alert-dismissable"
-                style="display: none"
-              >
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-hidden="true"
-                >
-                  &times;
-                </button>
-                Something went wrong. Please try again.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: Social media -->
