@@ -3,196 +3,362 @@
 <!DOCTYPE html>
 
 <html lang="en" class="h-100">
-
-<head>
+  <head>
     <title>Gem Explorers</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/12a433e021.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/12a433e021.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-        (function () {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init('fLYZqC8Iwh8F9l-lT');
-        })();
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init("fLYZqC8Iwh8F9l-lT");
+      })();
     </script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">Gem E<i class="fa-solid fa-gem" style="color: #ffc800;"></i>plorers</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'webinar' %}">Webinars</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'my-bookings' %}">My Bookings</a>
-                </li>
-                {% endif %}
-            </ul>
-            {% if user.is_authenticated %}
-            <form class="form-inline my-2 my-lg-0">
-                <span class="navbar-text ml-2">Welcome {{ user.username | capfirst }} <i class="fa-solid fa-user"></i>
-                    <button type="button" class="btn btn me-2">
-                        <a href="{% url 'account_logout' %}">Logout</a>
-                    </button>
-            {% else %}
-                    <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
-                        <a href="{% url 'account_login' %}">Sign In</a>
-                    </button>
-                    <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
-                        <a href="{% url 'account_signup' %}">Register</a>
-                    </button>
-            {% endif %}
+      <a class="navbar-brand" href="{% url 'home' %}"
+        >Gem E<i class="fa-solid fa-gem" style="color: #ffc800"></i>plorers</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            {% if user.is_superuser %}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'webinar' %}">Webinars</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'my-bookings' %}">My Bookings</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+        <form class="form-inline my-2 my-lg-0">
+          <span class="navbar-text ml-2"
+            >Welcome {{ user.username | capfirst }}
+            <i class="fa-solid fa-user"></i>
+            <button
+              type="button"
+              class="btn btn-danger me-2"
+              data-toggle="modal"
+              data-target="#signOutModal"
+            >
+              Sign Out
+            </button>
+            {% else %}
             <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
-                <a aria-current="Admin page" href="{% url 'admin:index' %}">Admin</a>
+              <a href="{% url 'account_login' %}">Sign In</a>
+            </button>
+            <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
+              <a href="{% url 'account_signup' %}">Register</a>
+            </button>
+            {% endif %} {% if user.is_superuser %}
+            <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
+              <a aria-current="Admin page" href="{% url 'admin:index' %}"
+                >Admin</a
+              >
             </button>
             {% endif %}
-                </span>
-            </form>
-        </div>
+          </span>
+        </form>
+      </div>
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                 {{ message | safe }}  
-                </div>
-
-                {% endfor %}
-
-            </div>
+    <!-- Sign out button modal -->
+    <div
+      class="modal fade"
+      id="signOutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="signOutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signOutModalLabel">
+              Sign Out?
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to sign out?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Sign Out</button>
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Message alerts at the top of screen -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          {% for message in messages %}
+          <div
+            class="alert {{ message.tags }} alert-dismissible fade show"
+            id="msg"
+            role="alert"
+          >
+            {{ message | safe }}
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
     </div>
     <!-- Navbar -->
     <main>
-
-        {% block content %}
-
-        {% endblock content %}
-
+        {% block content %} 
+        
+        
+        {% endblock content %} 
     </main>
 
     <!--Footer-->
     <footer class="bg-dark text-center text-white mt-auto">
-        <section class="container-fluid mt-4">
-            <div class="row bg-color-contact justify-content-center">
-                <div class="col-lg-6">
-                    <h2 class="contact-heading uppercase text-center">Contact us</h2>
-                    <p class="text-center">We would love to know if you have any locations you'd like us to post about, fill out the form below and we'll make it happen. Alternatively, if you have any questions or feedback, let us know in the form below and we'll get back to you.</p>
-        
-                    <div class="center-form">
-                        <form onsubmit="return sendMail(this);">
-                            <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
-                            <input type="email" name="emailaddress" id="emailaddress" class="form-control" placeholder="Email"
-                                required />
-                            <input type="text" name="idea" id="location-idea" class="form-control" placeholder="Location Idea (Optional)"/>
-                            <textarea rows="5" name="message" id="message" class="form-control"
-                                placeholder="Message/Idea Description" required></textarea>
-                            <div class="form-row text-center">
-                                <div class="col mt-4 mb-4">
-                                    <button type="submit" class="btn btn-primary px-5">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                        <div id="successfulForm" class="alert alert-success alert-dismissable" style="display: none;">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            Thank you, you're form has been submitted successfully.
-                        </div>
-                        <div id="unsuccessfulForm" class="alert alert-danger alert-dismissable" style="display: none;">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            Something went wrong. Please try again.
-                        </div>
-                    </div>
-        
+      <section class="container-fluid mt-4">
+        <div class="row bg-color-contact justify-content-center">
+          <div class="col-lg-6">
+            <h2 class="contact-heading uppercase text-center">Contact us</h2>
+            <p class="text-center">
+              We would love to know if you have any locations you'd like us to
+              post about, fill out the form below and we'll make it happen.
+              Alternatively, if you have any questions or feedback, let us know
+              in the form below and we'll get back to you.
+            </p>
+
+            <div class="center-form">
+              <form onsubmit="return sendMail(this);">
+                <input
+                  type="text"
+                  name="name"
+                  id="fullname"
+                  class="form-control"
+                  placeholder="Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="emailaddress"
+                  id="emailaddress"
+                  class="form-control"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  type="text"
+                  name="idea"
+                  id="location-idea"
+                  class="form-control"
+                  placeholder="Location Idea (Optional)"
+                />
+                <textarea
+                  rows="5"
+                  name="message"
+                  id="message"
+                  class="form-control"
+                  placeholder="Message/Idea Description"
+                  required
+                ></textarea>
+                <div class="form-row text-center">
+                  <div class="col mt-4 mb-4">
+                    <button type="submit" class="btn btn-primary px-5">
+                      Submit
+                    </button>
+                  </div>
                 </div>
+              </form>
+              <div
+                id="successfulForm"
+                class="alert alert-success alert-dismissable"
+                style="display: none"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-hidden="true"
+                >
+                  &times;
+                </button>
+                Thank you, you're form has been submitted successfully.
+              </div>
+              <div
+                id="unsuccessfulForm"
+                class="alert alert-danger alert-dismissable"
+                style="display: none"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-hidden="true"
+                >
+                  &times;
+                </button>
+                Something went wrong. Please try again.
+              </div>
             </div>
-        
+          </div>
+        </div>
+      </section>
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <!-- Twitter -->
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <!-- Google -->
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <!-- Instagram -->
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <!-- Linkedin -->
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+
+          <!-- Github -->
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-github"></i
+          ></a>
         </section>
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-                <!-- Facebook -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fab fa-facebook-f"></i></a>
-    
-                <!-- Twitter -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-    
-                <!-- Google -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
-    
-                <!-- Instagram -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fab fa-instagram"></i></a>
-    
-                <!-- Linkedin -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fab fa-linkedin-in"></i></a>
-    
-                <!-- Github -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
-            </section>
-            <!-- Section: Social media -->
-        </div>
-        <!-- Grid container -->
-    
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+          >MDBootstrap.com</a
+        >
+      </div>
+      <!-- Copyright -->
     </footer>
     <script src="{% static 'js/sendEmail.js' %}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
-        setTimeout(function () {
-           let messages = document.getElementById('msg');
-           let alert = new bootstrap.Alert(messages);
-           alert.close(); 
-        }, 4000);
+      setTimeout(function () {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+      }, 4000);
     </script>
-</body>
+  </body>
 </html>
