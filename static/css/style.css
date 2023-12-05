@@ -24,7 +24,7 @@ body{
     background-image: url('static/images/pexels-eberhard-grossgasteiger-534164.jpg');
     background-size: cover; 
     background-position: center; 
-    height: 800px;
+    min-height: 100vh;
 }
 
 .hero-content {
