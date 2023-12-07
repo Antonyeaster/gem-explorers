@@ -58,6 +58,10 @@ INSTALLED_APPS = [
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+ACCOUNT_FORMS = {
+    'signup': 'gems.forms.CustomSignupForm',
+}
+
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'

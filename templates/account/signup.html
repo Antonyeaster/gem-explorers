@@ -6,12 +6,16 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Up" %}</h3>
 
             <p>{% blocktrans %}Welcome to Gem E<i class="fa-solid fa-gem" style="color: #ffc800;"></i>plorers! To like our posts, leave a comment or make bookings to attend a webinar, please sign up below.
                     {% endblocktrans %}</p>
+            <p><strong>ALL FIELDS ARE REQUIRED FOR SIGN UP.</strong>
+                <br>
+                Email address is required for webinar meeting invitations <strong>only</strong>. Your email address will not be used for anything
+                else.</p>
         </div>
     </div>
     <div class="row">
@@ -21,6 +25,7 @@
                 {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                
                 {% endif %}
                 <button class="btn btn-primary right" type="submit">{% trans "Sign Up" %} &raquo;</button>
             </form>
