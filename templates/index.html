@@ -4,6 +4,8 @@
 
 {% load static %}
 
+<!--Hero image text-->
+
 {% if is_paginated and page_obj.number == 1 %}
 <section
   class="hero d-flex align-items-center"
@@ -26,67 +28,84 @@
   </div>
 </section>
 {% endif %}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 mt-3 left">
-      <div class="row">
-        {% for post in post_list %}
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="image-container">
-                {% if 'placeholder' in post.featured_image.url %}
-                <img
-                  class="card-img-top"
-                  src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
-                  alt="Lake with mountain reflections"
-                />
-                {% else %}
-                <img class="card-img-top" src="{{ post.featured_image.url}}" />
-                {% endif %}
-                <div class="image-flash">
-                  <p class="author">Author: {{ post.author }}</p>
-                </div>
-              </div>
-              <a href="{% url 'location_detail' post.slug %}" class="post-link">
-                <h2 class="card-title">{{ post.title }}</h2>
-                <p class="card-text">{{ post.excerpt }}</p>
-              </a>
-              <hr />
-              <p class="card-text text-muted h6">
-                {{ post.created_on }} <i class="fa-regular fa-thumbs-up ml-2"></i> {{post.number_of_likes}}
-    
-                
-                <strong class="text-secondary ml-2"><i class="far fa-comments white"></i>
-                    {{ post.comments.count }}</strong>
-            </p>
-            </div>
-          </div>
-        </div>
-        {% if forloop.counter|divisibleby:6 %}
-      </div>
-      <div class="row">{% endif %} {% endfor %}</div>
-    </div>
-  </div>
-  {% if is_paginated %}
-  <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      {% if page_obj.has_previous %}
-      <li>
-        <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
-          >&laquo; PREV
-        </a>
-      </li>
-      {% endif %} {% if page_obj.has_next %}
-      <li>
-        <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-          NEXT &raquo;</a
-        >
-      </li>
 
-      {% endif %}
-    </ul>
-  </nav>
-  {% endif %}
-</div>
+<!--Blog post heading and text-->
+
+<section class="blog-post-heading-section">
+    <div class="container card bg-dark mt-4 blog-heading">
+        <h3 class="text-center mt-4 mb-4">Check out our Hidden Gem blog posts!</h3>
+        <p class="text-center">Within these post you will find the inspiration you need to plan your next adventure. Once you've found the location you are interested in, keep an eye out of our webinar to get more in depth information</p>
+    </div>
+</section>
+
+<!--Blog posts-->
+
+<section class="blog-card-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    {% for post in post_list %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if 'placeholder' in post.featured_image.url %}
+                                    <img
+                                    class="card-img-top"
+                                    src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
+                                    alt="Lake with mountain reflections"
+                                    />
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ post.featured_image.url}}" />
+                                    {% endif %}
+                                    <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                    </div>
+                                </div>
+                            <a href="{% url 'location_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </a>
+                            <hr />
+                            <p class="card-text text-muted h6">
+                                {{ post.created_on }} <i class="fa-regular fa-thumbs-up ml-2"></i> {{post.number_of_likes}}
+                    
+                                
+                                <strong class="text-secondary ml-2"><i class="far fa-comments white"></i>
+                                    {{ post.comments.count }}</strong>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:6 %}
+                </div>
+        <div class="row">{% endif %} {% endfor %}</div>
+        </div>
+    </div>
+
+    <!--Page pagination-->
+
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
+            >&laquo; PREV
+            </a>
+        </li>
+        {% endif %} {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link">
+            NEXT &raquo;</a
+            >
+        </li>
+
+        {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+    </div>
+</section>
 {% endblock content %}

@@ -12,12 +12,13 @@
 }
 
 body{
-    background-color: #f8f9fa;
+    background-color: #99ccff;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .hero {
@@ -40,7 +41,7 @@ body{
 }
 
 .hero-content p {
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .navbar-brand {
@@ -49,4 +50,10 @@ body{
 
 .card {
     margin-bottom: 20px;
+}
+
+.blog-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
 }
