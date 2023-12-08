@@ -4,19 +4,19 @@
 
 <div class="masthead">
     <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title and author displayed with location image -->
-                <h1>{{ post.title }}</h1>
-                <p>{{ post.author }}</p>
-            </div>
+        <div class="row justify-content-center">
             <!-- Location image with backup image if post image not supplied -->
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-none d-md-block col-md-12 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg" width="100%">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
+
+                <div class="masthead-text">
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.author }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -67,42 +67,48 @@
         </div>
     </div>
     <!-- Comments section inside the post -->
-    <div class="row mb-4">
-        <div class="col-md-8 mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body card">
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    {{ comment.body | linebreaks }}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="mb-4">Comments:</h3>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        {% for comment in comments %}
+                        <div class="comments mb-3">
+                            <p class="font-weight-bold">
+                                {{ comment.name }}
+                                <span class=" text-muted font-weight-normal">
+                                    {{ comment.created_on }}
+                                </span> wrote:
+                            </p>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
-                {% endfor %}
             </div>
-        </div>
-        <div class="col-md-4 mb-4 mt-3 ">
-            <div class="card-body">
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Thank you for your comment, your comment is awaiting approval
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        {% if commented %}
+                        <div class="alert alert-success" role="alert">
+                            Thank you for your comment, your comment is awaiting approval
+                        </div>
+                        {% else %}
+
+                        {% if user.is_authenticated %}
+
+                        <h3>Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                    </div>
                 </div>
-                {% else %}
-
-                {% if user.is_authenticated %}
-
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;" class="card p-3 bg-light">
-                {{ comment_form | crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-primary mt-4">Submit</button>
-            </form>
-            {% endif %}
-            {% endif %}
             </div>
         </div>
     </div>
