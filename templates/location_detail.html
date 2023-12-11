@@ -44,9 +44,8 @@
                                 {% endif %}
                             </form>
                             {% else %}
-                            <span><i class="fa-regular fa-thumbs-up"></i> {{ post.number_of_likes}}</span>
+                            <span><i class="fa-regular fa-thumbs-up"></i></span>
                             {% endif %}
-                            <!-- The number of likes goes before the closing strong tag -->
                             <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
                     </div>
@@ -54,64 +53,106 @@
                     <div class="col-2">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments white"></i>
-                           {{ total_comments }}</strong>
+                            {{ total_comments }}</strong>
                         {% endwith %}
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <!-- Comments section inside the post -->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8">
-                <h3 class="mb-4">Comments:</h3>
-                <div class="card mb-4">
-                    <div class="card-body">
-                        {% for comment in comments %}
-                        <div class="comments mb-3">
-                            <p class="font-weight-bold">
-                                {{ comment.name }}
-                                <span class=" text-muted font-weight-normal">
-                                    {{ comment.created_on }}
-                                </span> wrote:
-                            </p>
-                            {{ comment.body | linebreaks }}
-                        </div>
-                        {% endfor %}
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        {% if commented %}
-                        <div class="alert alert-success" role="alert">
-                            Thank you for your comment, your comment is awaiting approval
-                        </div>
-                        {% else %}
-
-                        {% if user.is_authenticated %}
-
-                        <h3>Leave a comment:</h3>
-                        <p>Posting as: {{ user.username }}</p>
-                        <form method="post">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
-                    </form>
-                    {% endif %}
-                    {% endif %}
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- Comments section inside the post -->
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-8">
+                                {% if comments.count == 0 %}
+                                    {% if user.is_authenticated %}
+                                    <h3 class="mb-4">Be the first to make a comment.</h3>
+                                    {% else %}
+                                    <h3 class="mb-4">Sign up and be the first to make a comment. <a class="link btn btn-primary right" href="{% url 'account_signup' %}">Sign up here</a></h3>
+                                    {% endif %}
+                                {% else %}
+                                <h3 class="mb-4">Comments:</h3>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        {% for comment in comments %}
+                                        <div class="comments mb-3">
+                                            <p class="font-weight-bold">
+                                                {{ comment.name }}
+                                                <span class=" text-muted font-weight-normal">
+                                                    {{ comment.created_on }}
+                                                </span> wrote:
+                                            </p>
+                                            {{ comment.body | linebreaks }}
 
-{% endblock content %}
+                                            <!-- Front end admin control for deleting inappropriate comments with delete modal -->
+                                            
+                                            {% if user.is_superuser %}
+
+                                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                data-target="#confirmDeleteModalComment{{ comment.id }}">Delete</button>
+
+                                            <div class="modal fade" id="confirmDeleteModalComment{{ comment.id }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="confirmDeleteModalCommentLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="confirmDeleteModalCommentLabel">Are you sure you want to delete this comment?
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Confirming the deletion will permanently remove this comment. Do you want to proceed?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                            <form method="post" action="{% url 'delete_comment' comment.id %}">
+                                                                {% csrf_token %}
+                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if commented %}
+                            <div class="alert alert-success" role="alert">
+                                Thank you for your comment, your comment is awaiting approval
+                            </div>
+                            {% else %}
+                    
+                            {% if user.is_authenticated %}
+                    
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                    
+                                        <h3>Leave a comment:</h3>
+                                        <p>Posting as: {{ user.username }}</p>
+                                        <form method="post">
+                                            {{ comment_form | crispy }}
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                                        </form>
+                                        {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    {% endblock content %}

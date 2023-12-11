@@ -17,4 +17,6 @@ urlpatterns = [
          views.UpdateBooking.as_view(), name='update-booking'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='location_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
+    path('delete_comment/<int:comment_id>/',
+         views.AdminQuickDeleteComment.as_view(), name='delete_comment'),
 ]

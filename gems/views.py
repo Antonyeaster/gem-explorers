@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 from django.views import generic, View
-from .models import Post, Webinar, Timestamp, Booking
+from .models import Post, Webinar, Timestamp, Booking, Comment
 from .forms import CommentForm
 from django.contrib import messages
 from django.db import IntegrityError
@@ -26,6 +26,29 @@ def webinar(request):
 
 def contact(request):
     return render(request, 'contact_us.html')
+
+
+""" https://www.youtube.com/watch?v=CIR2QhX5mqA for help with deleting comment on frontend"""
+
+
+class AdminQuickDeleteComment(View):
+    def is_superuser(self):
+        return self.request.user.is_superuser
+
+    def get(self, request, comment_id):
+        comment = get_object_or_404(Comment, id=comment_id)
+        comment.delete()
+        return redirect('location_detail', slug=comment.post.slug)
+
+    def post(self, request, comment_id):
+        if not self.is_superuser():
+            return HttpResponseForbidden(
+                "You are not authorised to make this request")
+
+        comment = get_object_or_404(Comment, id=comment_id)
+        post_slug = comment.post.slug
+        comment.delete()
+        return redirect('location_detail', slug=post_slug)
 
 
 class PostList(generic.ListView):
