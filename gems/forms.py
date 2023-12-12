@@ -20,4 +20,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
-        labels = {'body': 'Write your comment here:',}
+        labels = {'body': 'Write your comment below:', }
