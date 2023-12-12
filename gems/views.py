@@ -51,21 +51,38 @@ class AdminQuickDeleteComment(View):
         return redirect('location_detail', slug=post_slug)
 
 
+""" Blog post list"""
+
+
 class PostList(generic.ListView):
+
+    """Create post list on index page with 6 posts per page"""
+
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
 
 
+""" Webinar post list """
+
+
 class WebinarList(generic.ListView):
+
+    """Create webinar list within the webinars page with 4 posts per page"""
+
     model = Webinar
     queryset = Webinar.objects.filter(status=1).order_by('-created_on')
     template_name = 'webinars.html'
     paginate_by = 4
 
 
+""" Webinar detail page """
+
+
 class WebinarDetail(View):
+
+    """ To display webinar detail for user to read then book """
 
     def get(self, request, slug, *args, **kwargs):
         webinar = get_object_or_404(Webinar, slug=slug)
@@ -79,7 +96,13 @@ class WebinarDetail(View):
         )
 
 
+""" Make a booking """
+
+
 class Book(View):
+
+    """ For making a booking and selecting the amount of viewers attending
+    must be signed in"""
 
     def get(self, request, timestamp_id):
         timestamp = get_object_or_404(Timestamp, id=timestamp_id)
@@ -115,7 +138,13 @@ class Book(View):
             })
 
 
+""" Update webinar booking """
+
+
 class UpdateBooking(View):
+
+    """ To update webinar viewers amount """
+
     def post(self, request, booking_id):
         booking_update = get_object_or_404(
             Booking, id=booking_id, user=request.user, approved=True)
@@ -125,7 +154,12 @@ class UpdateBooking(View):
         return redirect('my-bookings')
 
 
+""" Booking page """
+
+
 class MyBooking(View):
+
+    """ For viewing bookings once they have been approved by admin """
 
     def get(self, request):
         booking_approved = Booking.objects.filter(
@@ -140,6 +174,8 @@ class MyBooking(View):
                 'approved': False,
             })
 
+    """ For users to delete a booking """
+
     def post(self, request, booking_id):
         booking_delete = get_object_or_404(
             Booking, id=booking_id, user=request.user, approved=True)
@@ -147,7 +183,12 @@ class MyBooking(View):
         return redirect('my-bookings')
 
 
+""" location detail page including likes and comments """
+
+
 class PostDetail(View):
+
+    """ For displaying the loaction detail related to the post """
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -168,6 +209,8 @@ class PostDetail(View):
                 'comment_form': CommentForm()
             },
         )
+
+    """ To create a comment and display users details"""
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -207,7 +250,11 @@ class PostDetail(View):
         )
 
 
+""" Liking posts """
+
 class PostLike(View):
+
+    """ For liking a post and also removing the like """
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
