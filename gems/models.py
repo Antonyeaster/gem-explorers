@@ -12,6 +12,10 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
+
+    """ All fields required to create a post in
+    the blog section. """
+
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
     author = models.ForeignKey(
@@ -38,6 +42,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+
+    """ For commenting on the posts in the blog section, 
+    approval is required before the post is published"""
+
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
@@ -59,6 +67,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Webinar(models.Model):
+
+    """ All fields required to create a webinar advert """
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     speaker = models.CharField(max_length=100)
@@ -75,10 +86,13 @@ class Webinar(models.Model):
         return self.title
 
 
-"""Webinar booking time (No double bookings)"""
+"""Webinar booking """
 
 
 class Timestamp(models.Model):
+
+    """Webinar booking time (No double bookings)"""
+
     webinar = models.ForeignKey(
         Webinar, on_delete=models.CASCADE, related_name='approved_webinar')
     date_and_time = models.DateTimeField()
@@ -97,10 +111,14 @@ class Timestamp(models.Model):
         return f'{self.webinar.title} scheduled for {self.date_and_time}'
 
 
-"""Booked webinar (No double bookings)"""
+"""Booked webinar """
 
 
 class Booking(models.Model):
+
+    """ All required fields to book a webinar, webinar must be approved 
+    before displaying in bookings page"""
+    
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_bookings')
     webinar = models.ForeignKey(
