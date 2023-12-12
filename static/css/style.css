@@ -19,17 +19,12 @@ body {
 .navbar-light .navbar-brand {
     color: rgba(0, 0, 0);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .navbar-nav .nav-link {
     font-weight: bold;
-    margin-left: 5px;
-
-}
-
-.navbar-nav .nav-item {
-    color: blue;
+    margin-left: 2px;
 }
 
 /* Hero image and text */
@@ -92,4 +87,8 @@ body {
     color: #0233d3;
     border: none;
     background: transparent;
+}
+
+.footer-text {
+    color: black;
 }

@@ -67,14 +67,14 @@
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'webinar' %}">Webinars</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'my-bookings' %}">My Bookings</a>
+            <a class="nav-link" href="{% url 'my-bookings' %}">Bookings</a>
           </li>
           {% endif %}
         </ul>
@@ -172,46 +172,34 @@
     <main>{% block content %} {% endblock content %}</main>
 
     <!--Footer-->
-    <footer class="bg-dark text-center text-white mt-auto">
-      <!-- Grid container -->
-      <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-          <!-- YouTube -->
-          <a
-            class="btn btn-outline-light btn-floating m-1" target="_blank"
-            href="https://www.youtube.com/"
-            role="button"
-            ><i class="fa-brands fa-youtube"></i>
-          </a>
-
-          <!-- Linkedin -->
-          <a
-            class="btn btn-outline-light btn-floating m-1" target="_blank"
-            href="https://www.linkedin.com/"
-            role="button"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-
-          <!-- Github -->
-          <a
-            class="btn btn-outline-light btn-floating m-1" target="_blank"
-            href="https://github.com/Antonyeaster/gem-explorers"
-            role="button"
-            ><i class="fab fa-github"></i
-          ></a>
-        </section>
-        <!-- Section: Social media -->
-      </div>
-      <!-- Grid container -->
-
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        Made for educational purpose
-        <p class="text-white">Antony Easter</p
-        >
-      </div>
-      <!-- Copyright -->
+    <footer class="bg-light text-center text-white mt-auto">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-2">
+                <!-- YouTube -->
+                <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.youtube.com/"
+                    role="button"><i class="fa-brands fa-youtube"></i>
+                </a>
+    
+                <!-- Linkedin -->
+                <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.linkedin.com/"
+                    role="button"><i class="fab fa-linkedin-in"></i></a>
+    
+                <!-- Github -->
+                <a class="btn btn-outline-dark btn-floating m-1" target="_blank"
+                    href="https://github.com/Antonyeaster/gem-explorers" role="button"><i class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+    
+        <!-- Copyright -->
+        <div class="text-center p-3 footer-text">
+            Made for educational purpose
+            <p>Antony Easter</p>
+        </div>
+        <!-- Copyright -->
     </footer>
     <script src="{% static 'js/sendEmail.js' %}"></script>
 
