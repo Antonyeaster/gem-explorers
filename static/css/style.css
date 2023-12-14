@@ -28,6 +28,11 @@ body {
     margin-left: 2px;
 }
 
+.signup-in a {
+    text-decoration: none;
+    color: white;
+}
+
 /* Hero image and text */
 
 .hero {

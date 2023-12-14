@@ -92,10 +92,10 @@
               Sign Out
             </button>
             {% else %}
-            <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
+            <button type="button" class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
               <a href="{% url 'account_login' %}">Sign In</a>
             </button>
-            <button type="button" class="btn btn px-3 me-2 mr-2 ml-2">
+            <button type="button" class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
               <a href="{% url 'account_signup' %}">Register</a>
             </button>
             {% endif %} {% if user.is_superuser %}
