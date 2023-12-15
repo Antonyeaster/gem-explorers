@@ -1,71 +1,74 @@
 {% extends "base.html" %} 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-md-12 px-5 py-5 text-center">
-      <h1 class="text-center mb-5">About us</h1>
+    <div class="col-xl-12 px-5 py-5 text-center">
+      <h1 class="text-center mb-5 about-headings">About us</h1>
 
       <div class="row">
-        <!-- First Section (Image on Left, Text on Right) -->
-        <div class="col-md-6">
+        <!-- First Section (Text above image) -->
+        <div class="col-xl-12 mt-4 mb-4 content-border">
+          <h2 class="about-headings mb-4">Our Story</h2>
+          <p>
+            Welcome to Gem Explorers, where our passion for exploration knows no bounds. We are enthusiasts dedicated to
+            uncovering hidden gems tucked away in the tapestry of the world.
+            <br>
+            <br>
+            Our journey began as a shared passion for the unknown, a passion that led us to some of the wonders of our world. 
+            Sharing these with you has become our dream and we can't encourage you more to get involved.
+            <br>
+            <br>
+            In the early days, we were open minded spirits with a shared dream, to uncover the secrets that have been hidden for a number of years. 
+            Armed with nothing but a sense of adventure and a genuine love for the world's mysteries, we embarked on a journey
+            that would redefine our lives.
+            <br>
+            <br>
+            Through countless adventures, we honed our approach, learning to respect the local community. We engaged with the local
+            communities, understanding the importance of mutual respect and collaboration. The journey was no longer just about us,
+            it became a shared endeavor to safeguard the treasures we uncovered, while bringing a small amount of revenue to the small communities.
+            <br>
+            <br>
+            And so, Gem Explorers became a testament to the wonderful power of exploration, a journey that started with
+            curiosity, blossomed into discovery. As we invite you to join us, remember that every step you take is a continuation of the path we've paved,
+            a path that honors the beauty of the unexplored and safeguards it for future generations.
+          </p>
+        </div>
+        <div class="col-xl-12 mt-4 mb-4">
             <div class="w-90">
-          <img
-            class="img-fluid"
-            src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
-            alt="Image 1"
-          />
+                <img class="img-fluid" src="https://res.cloudinary.com/dqphba816/image/upload/v1702673433/our-story_bfsukt.webp"
+                    alt="Image 1" />
             </div>
         </div>
-        <div class="col-md-6 mt-4 mb-4 content-border">
-          <h2>Our Story</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.
-          </p>
-        </div>
 
-        <!-- Second Section (Image on Right, Text on Left) -->
-        <div class="col-md-6 mt-4 mb-4 content-border">
-          <h2>Our mission</h2>
+        <!-- First Section (Text above image) -->
+        <div class="col-xl-12 mt-4 mb-4 content-border">
+          <h2 class="about-headings mb-4">Our mission</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
-            reprehenderit facere velit voluptates laborum voluptas aperiam
-            dolores unde numquam architecto eos id vitae sed, a ad libero eius
-            perspiciatis eum.
+            Our mission is to open doors for you to explore, doors that we are sure you've probably never heard of but we garentee curiosity.
+            Our ethos is simple, to share the beauty of these hidden gems without disrupting the harmony of local communities. We
+            strive to avoid transforming these hidden wonders into bustling tourist attractions, understanding the potential impact
+            on the places we hold dear.
+            <br>
+            <br>
+            Instead, we invite fellow explorers who share our love for the undiscovered, to join us in witnessing
+            the magic. Gem Explorers is an open invitation for like-minded explorists to partake in the wonders we unveil.
+            <br>
+            <br>
+            We strive to create memories that you will hold forever, stories you can pass on and relive.
           </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-xl-12 mt-4 mb-4">
           <div class="w-90">
             <img
-              class="img-fluid"
-              src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
+              class="img-fluid our-mission"
+              src="https://res.cloudinary.com/dqphba816/image/upload/v1702673527/our-mission_lpfng8.webp"
               alt="Image 2"
             />
           </div>
         </div>
       </div>
-    Don't have an account? <a class="link btn btn-primary right mt-4" href="{% url 'account_signup' %}">Sign up here</a>
+    <span class="mt-4">Don't have an account? <a class="link btn btn-primary" href="{% url 'account_signup' %}">Sign up here</a></span>
     </div>
   </div>
 </div>
