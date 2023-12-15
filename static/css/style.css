@@ -43,7 +43,7 @@ body {
 }
 
 .hero-content {
-    background-color: rgba(10, 10, 10, 0.6); 
+    background-color: rgba(10, 10, 10, 0.8); 
     padding: 20px; 
     border-radius: 5px;
     color: #fff;
@@ -109,6 +109,7 @@ body {
     border: 2px solid black;
     padding: 20px;
     background-color: white;
+    height: fit-content;
 }
 
 .btn-like {
@@ -119,4 +120,13 @@ body {
 
 .footer-text {
     color: black;
+}
+
+.img-fluid {
+    max-height: 800px;
+}
+
+.about-headings {
+    font-weight: bolder;
+    font-size: 40px;
 }
