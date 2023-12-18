@@ -4,11 +4,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3 left">
+            <h1 class="text-center mt-2 mb-5"><strong>Available Webinars</strong></h1>
             <div class="row">
                 {% for webinar in webinar_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body content-border">
+                        <div class="card-body text-center content-border">
                             <div class="image-container">
                                 {% if 'placeholder' in webinar.featured_image.url %}
                                 <img class="card-img-top"
@@ -27,11 +28,10 @@
                             <a href="{% url 'webinar_detail' webinar.slug %}" class="webinar-link">
                                 <button class="btn btn-primary" type="submit">Book</button>
                             </a>
-                            <hr>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:4 %}
+                {% if forloop.counter|divisibleby:6 %}
             </div>
             <div class="row">
                 {% endif %}
@@ -43,10 +43,10 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link prev-btn">&laquo; PREV </a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link next-btn"> NEXT &raquo;</a></li>
 
             {% endif %}
         </ul>

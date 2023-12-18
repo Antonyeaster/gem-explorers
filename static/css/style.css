@@ -130,3 +130,21 @@ body {
     font-weight: bolder;
     font-size: 40px;
 }
+
+.webinar-link {
+    align-items: center;
+}
+
+.next-btn {
+    text-decoration: none;
+    background-color: #28A745;
+    color: white;
+    border: 2px solid black;
+}
+
+.prev-btn {
+    text-decoration: none;
+    background-color: #DC3545;
+    color: white;
+    border: 2px solid black;
+}
