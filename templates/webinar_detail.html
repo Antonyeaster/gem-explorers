@@ -28,11 +28,15 @@
             {% endif %}
           </div>
           <p class="card-text mt-3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde,
-            sapiente nemo culpa officia ipsum reiciendis blanditiis consectetur
-            ea enim quos in veritatis esse id perferendis ad omnis rem
-            voluptatem numquam?
-          </p>
+                {{ webinar.description }}
+            </p>
+            <p>
+                All webinars will be held on Zoom, the email address you used to sign up will be sent a link 1 hour before the webinar is set to start. 
+                Once you've entered the call please stay muted and please note down your questions, there will be time at the end to go over them. 
+                Feel free to remain hidden, or alternativly your welcome to keep your camera on.
+            </p>
+            <p>If you have any issues with bookings or alternative questions, you can contact us <a href="{% url 'contact' %}">here</a></p>
+            <p>All booking are subject to being signed in.</p>
         </div>
       </div>
     </div>
