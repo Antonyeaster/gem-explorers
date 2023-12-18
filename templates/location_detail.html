@@ -65,6 +65,14 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <p>Need more informaion? Check out our Webinars for more in-depth information on this location <a class="link btn btn-primary" href="{% url 'webinar' %}">Webinars</a>
+                <p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <hr>
@@ -82,6 +90,7 @@
                     {% endif %}
                 {% else %}
                 <h3 class="mb-4">Comments:</h3>
+                <p><small>**You must be signed in to make a comment</small></p>
                 <div class="card mb-4">
                     <div class="card-body">
                         {% for comment in comments %}
