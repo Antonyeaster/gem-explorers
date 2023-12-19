@@ -20,3 +20,9 @@ urlpatterns = [
     path('delete_comment/<int:comment_id>/',
          views.AdminQuickDeleteComment.as_view(), name='delete_comment'),
 ]
+
+
+handler404 = 'gems.views.error_404'
+handler500 = 'gems.views.error_500'
+handler403 = 'gems.views.error_403'
+handler400 = 'gems.views.error_400'
