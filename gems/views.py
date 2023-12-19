@@ -7,31 +7,26 @@ from django.contrib import messages
 from django.db import IntegrityError
 
 
-"""About Page"""
-
-
 def about(request):
+    """About Page"""
     return render(request, 'about.html')
 
 
-"""Webinar list page"""
-
-
 def webinar(request):
+    """Webinar list page"""
     return render(request, 'webinars.html')
 
 
-"""Contact us page"""
-
-
 def contact(request):
+    """Contact us page"""
     return render(request, 'contact_us.html')
 
 
-""" https://www.youtube.com/watch?v=CIR2QhX5mqA for help with deleting comment on frontend"""
-
-
 class AdminQuickDeleteComment(View):
+
+    """ https://www.youtube.com/watch?v=CIR2QhX5mqA 
+    for help with deleting comment on frontend """
+    
     def is_superuser(self):
         return self.request.user.is_superuser
 
@@ -252,6 +247,7 @@ class PostDetail(View):
 
 """ Liking posts """
 
+
 class PostLike(View):
 
     """ For liking a post and also removing the like """
@@ -265,3 +261,23 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('location_detail', args=[slug]))
+
+
+def error_404(request, exception):
+    """ 404 Page Not Found """
+    return render(request, '404.html', status=404)
+
+
+def error_500(request):
+    """ 500 Internal Server Error """
+    return render(request, '500.html', status=500)
+
+
+def error_403(request, exception):
+    """ 403 Forbidden """
+    return render(request, '403.html', status=403)
+
+
+def error_400(request, exception):
+    """ 400 Bad Request """
+    return render(request, '400.html', status=400)
