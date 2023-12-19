@@ -36,10 +36,13 @@ body {
 /* Hero image and text */
 
 .hero {
-    background-image: url('static/images/pexels-eberhard-grossgasteiger-534164.jpg');
-    background-size: cover; 
-    background-position: center; 
-    min-height: 100vh;
+    background-image: url("https://res.cloudinary.com/dqphba816/image/upload/v1703015107/pexels-eberhard-grossgasteiger-534164_yhxrm3.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content {
