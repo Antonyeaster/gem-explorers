@@ -118,7 +118,8 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
-        {% if comments.count == 0 %} {% if user.is_authenticated %}
+        {% if comments.count == 0 %} 
+        {% if user.is_authenticated %}
         <h3 class="mb-4">Be the first to make a comment.</h3>
         {% else %}
         <h3 class="mb-4">
@@ -211,15 +212,18 @@
               </div>
               {% endif %}
             </div>
-            {% endfor %} {% endif %}
+            {% endfor %} 
+            {% endif %}
           </div>
         </div>
       </div>
       {% if commented %}
       <div class="alert alert-success" role="alert">
-        Thank you for your comment, your comment is awaiting approval
+        Thank you for your comment, your comment is awaiting approval.
       </div>
-      {% else %} {% if user.is_authenticated %}
+      {% else %}
+
+      {% if user.is_authenticated %}
 
       <div class="col-md-6">
         <h3 class="mb-4">Leave a comment:</h3>
