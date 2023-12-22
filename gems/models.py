@@ -96,7 +96,6 @@ class Timestamp(models.Model):
     webinar = models.ForeignKey(
         Webinar, on_delete=models.CASCADE, related_name='approved_webinar')
     date_and_time = models.DateTimeField()
-    booked = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['date_and_time']
