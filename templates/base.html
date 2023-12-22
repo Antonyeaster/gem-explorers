@@ -6,9 +6,12 @@
   <head>
     <title>Gem Explorers</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -43,7 +46,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light logo">
       <a class="navbar-brand" href="{% url 'home' %}"
-        >Gem E<i class="fa-solid fa-gem" style="color: rgb(255, 200, 0)"></i>plorers</a
+        >Gem E<i class="fa-solid fa-gem" style="color: rgb(255, 200, 0)"></i
+        >plorers</a
       >
       <button
         class="navbar-toggler"
@@ -93,10 +97,16 @@
               Sign Out
             </button>
             {% else %}
-            <button type="button" class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
+            <button
+              type="button"
+              class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in"
+            >
               <a href="{% url 'account_login' %}">Sign In</a>
             </button>
-            <button type="button" class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
+            <button
+              type="button"
+              class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in"
+            >
               <a href="{% url 'account_signup' %}">Sign Up</a>
             </button>
             {% endif %} {% if user.is_superuser %}
@@ -174,33 +184,47 @@
 
     <!--Footer-->
     <footer class="bg-light text-center text-white mt-auto">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-2">
-                <!-- YouTube -->
-                <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.youtube.com/"
-                    role="button" aria-label="Open Youtube (opens in a new tab)"><i class="fa-brands fa-youtube"></i>
-                </a>
-    
-                <!-- Linkedin -->
-                <a class="btn btn-outline-dark btn-floating m-1" target="_blank" href="https://www.linkedin.com/"
-                    role="button" aria-label="Open LinkedIn (opens in a new tab)"><i class="fab fa-linkedin-in"></i></a>
-    
-                <!-- Github -->
-                <a class="btn btn-outline-dark btn-floating m-1" target="_blank"
-                    href="https://github.com/Antonyeaster/gem-explorers" role="button" aria-label="Visit my GitHub page (opens in a new tab)"><i class="fab fa-github"></i></a>
-            </section>
-            <!-- Section: Social media -->
-        </div>
-        <!-- Grid container -->
-    
-        <!-- Copyright -->
-        <div class="text-center p-3 footer-text">
-            Made for educational purpose
-            <p>Antony Easter</p>
-        </div>
-        <!-- Copyright -->
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-2">
+          <!-- YouTube -->
+          <a
+            class="btn btn-outline-dark btn-floating m-1"
+            target="_blank"
+            href="https://www.youtube.com/"
+            role="button"
+            ><i class="fa-brands fa-youtube"></i>
+          </a>
+
+          <!-- Linkedin -->
+          <a
+            class="btn btn-outline-dark btn-floating m-1"
+            target="_blank"
+            href="https://www.linkedin.com/"
+            role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+
+          <!-- Github -->
+          <a
+            class="btn btn-outline-dark btn-floating m-1"
+            target="_blank"
+            href="https://github.com/Antonyeaster/gem-explorers"
+            role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3 footer-text">
+        Made for educational purpose
+        <p>Antony Easter</p>
+      </div>
+      <!-- Copyright -->
     </footer>
     <script src="{% static 'js/sendEmail.js' %}"></script>
 
