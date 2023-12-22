@@ -16,7 +16,7 @@
                                     src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
                                     alt="Lake with mountain reflections">
                                 {% else %}
-                                <img class="card-img-top" src="{{ webinar.featured_image.url}}">
+                                <img class="card-img-top" src="{{ webinar.featured_image.url}}" alt="small image of the location in the heading">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p>Speaker: {{ webinar.speaker }}</p>

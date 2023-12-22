@@ -16,7 +16,7 @@
                     {% if "placeholder" in post.featured_image.url %}
                     <img src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg" width="100%">
                     {% else %}
-                    <img src=" {{ post.featured_image.url }}" width="100%">
+                    <img alt="small image of the location in the heading" src=" {{ post.featured_image.url }}" width="100%">
                     {% endif %}
                     </div>
                 </div>
