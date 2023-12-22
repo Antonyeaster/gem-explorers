@@ -1,6 +1,6 @@
 
 body {
-    background-color: rgb(105, 196, 248);
+    background-color: #69c4f8;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -59,6 +59,10 @@ body {
 
 .hero-content p {
     font-weight: 700;
+}
+.hero-text-link {
+    text-decoration: none;
+    color: #69c4f8;
 }
 
 /* Post Heading and text */
@@ -121,6 +125,11 @@ body {
     background: transparent;
 }
 
+.btn-primary {
+    background-color: #0233d3;
+    color: #fff;
+}
+
 .footer-text {
     color: black;
 }
@@ -140,8 +149,8 @@ body {
 
 .next-btn {
     text-decoration: none;
-    background-color: #28A745;
-    color: white;
+    background-color: #70eb8c;
+    color: black;
     border: 2px solid black;
 }
 
@@ -150,6 +159,11 @@ body {
     background-color: #DC3545;
     color: white;
     border: 2px solid black;
+}
+
+.admin-btn {
+    background-color: #70eb8c;
+    color: black;
 }
 
 .helptext {

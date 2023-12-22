@@ -100,7 +100,7 @@
               <a href="{% url 'account_signup' %}">Sign Up</a>
             </button>
             {% endif %} {% if user.is_superuser %}
-            <button type="button" class="btn btn-success px-3 me-2 mr-2 ml-2">
+            <button type="button" class="btn admin-btn px-3 me-2 mr-2 ml-2">
               <a aria-current="Admin page" href="{% url 'admin:index' %}"
                 >Admin</a
               >

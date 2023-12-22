@@ -17,7 +17,7 @@
           <br />
           Discover the beauty of our world, Gem Explorers is here to give you
           the information you need to embrace the hidden gems we have all around
-          us. <strong><a href="{% url 'account_signup' %}">Sign up free today</a></strong> to join our curious community.
+          us. <strong><a class="hero-text-link" href="{% url 'account_signup' %}">Sign up free today</a></strong> to join our curious community.
           <br>
           Visit our Blog posts below to discover the incredible natural beauties our world has instore for us.
         </p>
@@ -56,7 +56,7 @@
                                     alt="Lake with mountain reflections"
                                     />
                                     {% else %}
-                                    <img class="card-img-top" src="{{ post.featured_image.url}}" />
+                                    <img class="card-img-top" src="{{ post.featured_image.url}}" alt="small image of the location in the heading"/>
                                     {% endif %}
                                     <div class="image-flash text-center">
                                     <p class="author">Author: {{ post.author }}</p>
