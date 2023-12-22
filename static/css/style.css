@@ -109,7 +109,7 @@ body {
 }
 
 .location-author {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .content-border {
@@ -127,6 +127,11 @@ body {
 
 .btn-primary {
     background-color: #0233d3;
+    color: #fff;
+}
+
+.btn-primary a {
+    text-decoration: none;
     color: #fff;
 }
 

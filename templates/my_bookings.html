@@ -6,11 +6,11 @@
             {% if already_booked %}
             <h1>You've already booked this Webinar</h1>
             <p>Please wait for Admin to approve the booking. This is usually done within 24 hours from when the booking
-                was made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a> </p>
+                was made. Once the booking is approved it will show up <button class="btn btn-primary"><a href="{% url 'my-bookings' %}">here</a></button></p>
             {% elif pending_approval %}
             <h1>Thank you for your booking!</h1>
             <p>Your booking is pending approval. Please wait for Admin to approve the booking. This is usually done within 24 hours from when the booking
-                was made. Once the booking is approved it will show up <a href="{% url 'my-bookings' %}">here</a> </p>
+                was made. Once the booking is approved it will show up <button class="btn btn-primary"><a href="{% url 'my-bookings' %}">here</a></button></p>
             {% elif approved %}
             <h2>Approved Bookings</h2>
             {% for booking in booking_approved %}
