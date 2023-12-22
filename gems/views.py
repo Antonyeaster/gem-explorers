@@ -124,7 +124,10 @@ class Book(View):
                     'pending_approval': True
                 })
             else:
-                # if not authenticated, send user to login page
+                # if not authenticated, 
+                # send user to login page with error message
+                messages.error(
+                    request, 'You need to be signed in to book a webinar.')
                 return redirect('account_login')
         except IntegrityError:
             # Handle IntegrityError (prevent double booking attempt)
