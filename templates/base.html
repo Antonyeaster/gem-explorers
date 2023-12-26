@@ -66,46 +66,47 @@
                 {% endif %}
             </ul>
             {% if user.is_authenticated %}
-    
+        
             <!-- Username top right corner-->
             <form class="form-inline my-2 my-lg-0">
                 <span class="navbar-text ml-2">
                     Welcome {{ user.username | capfirst }}
                     <i class="fa-solid fa-user"></i>
-    
+        
                     <!-- Sign out button-->
-    
+        
                     <button type="button" class="btn btn-danger me-2" data-toggle="modal" data-target="#signOutModal">
                         Sign Out
                     </button>
                 </span>
             </form>
-    
-                    {% else %}
-    
-                    <!-- Sign in button-->
-    
-                    <li class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
-                        <a href="{% url 'account_login' %}">Sign In</a>
-                    </li>
-    
-                    <!-- Sign up button-->
-    
-                    <li class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
-                        <a href="{% url 'account_signup' %}">Sign Up</a>
-                    </li>
-    
-                    {% endif %}
-    
-                    {% if user.is_superuser %}
-    
-                    <!-- Admin button-->
-    
-                    <li class="btn admin-btn px-3 me-2 mr-2 ml-2">
-                        <a aria-current="Admin page" href="{% url 'admin:index' %}">Admin
-                        </a>
-                    </li>  
-                    {% endif %}
+        
+            {% else %}
+            <ul class="mb-0">
+                <!-- Sign in button-->
+        
+                <li class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
+                    <a href="{% url 'account_login' %}">Sign In</a>
+                </li>
+        
+                <!-- Sign up button-->
+        
+                <li class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
+                    <a href="{% url 'account_signup' %}">Sign Up</a>
+                </li>
+        
+                {% endif %}
+        
+                {% if user.is_superuser %}
+        
+                <!-- Admin button-->
+        
+                <li class="btn admin-btn px-3 me-2 mr-2 ml-2">
+                    <a aria-current="Admin page" href="{% url 'admin:index' %}">Admin
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </nav>
 
