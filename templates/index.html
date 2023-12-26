@@ -4,7 +4,7 @@
 
 {% load static %}
 
-<!--Hero image text-->
+<!-- Hero image text -->
 
 {% if is_paginated and page_obj.number == 1 %}
 <section class="hero">
@@ -12,9 +12,9 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3 text-center hero-content">
         <h1>Gem Explorers</h1>
-        <p >
+        <p>
           Where we turn Tourists into Explorists!
-          <br />
+          <br>
           Discover the beauty of our world. Gem Explorers is here to give you
           the information you need to embrace the hidden gems we have all around
           us. <strong><a class="hero-text-link" href="{% url 'account_signup' %}">Sign up for free today</a></strong> to join our curious community.
@@ -27,17 +27,18 @@
 </section>
 {% endif %}
 
-<!--Blog post heading and text-->
+<!-- Blog post heading and text -->
 
 <section class="blog-post-heading-section">
     <div class="container card bg-dark mt-4 blog-heading">
-        <h3 class="text-center mt-4 mb-4">Check out our Hidden Gem blog posts!</h3>
+        <h2 class="text-center mt-4 mb-4">Check out our Hidden Gem blog posts!</h2>
         <p class="text-center">Within these posts, you will find the inspiration you need to plan your next adventure. Once you've found the location
-        you are interested in, keep an eye out for our webinar to get more in-depth information.</p>
+        you are interested in, keep an eye out for our webinar to get more in-depth information.
+        </p>
     </div>
 </section>
 
-<!--Blog posts-->
+<!-- Blog posts card -->
 
 <section class="blog-card-section">
     <div class="container-fluid">
@@ -51,13 +52,13 @@
                                 <a href="{% url 'location_detail' post.slug %}" class="post-link">
                                 <div class="image-container">
                                     {% if 'placeholder' in post.featured_image.url %}
+                                    <!-- Placeholder image for location cards -->
                                     <img
                                     class="card-img-top"
                                     src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
-                                    alt="Lake with mountain reflections"
-                                    />
+                                    alt="Lake with mountain reflections">
                                     {% else %}
-                                    <img class="card-img-top" src="{{ post.featured_image.url}}" alt="small image of the location in the heading"/>
+                                    <img class="card-img-top" src="{{ post.featured_image.url}}" alt="small image of the location in the heading">
                                     {% endif %}
                                     <div class="image-flash text-center">
                                     <p class="author">Author: {{ post.author }}</p>
@@ -66,7 +67,7 @@
                                 <h3 class="card-title">{{ post.title }}</h3>
                                 <p class="text-center"><strong>Location: {{ post.location }}</strong></p>
                             </a>
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">
                                 {{ post.created_on }} <i class="fa-regular fa-thumbs-up ml-2"></i> {{post.number_of_likes}}
                     
@@ -77,13 +78,17 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Page pagination card count -->
                     {% if forloop.counter|divisibleby:6 %}
                 </div>
-        <div class="row">{% endif %} {% endfor %}</div>
+                <div class="row">
+                    {% endif %} 
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-    </div>
 
-    <!--Page pagination-->
+    <!--Page pagination buttons-->
 
     {% if is_paginated %}
     <nav aria-label="Page navigation">
@@ -94,7 +99,9 @@
             >&laquo; PREV
             </a>
         </li>
-        {% endif %} {% if page_obj.has_next %}
+        {% endif %} 
+        
+        {% if page_obj.has_next %}
         <li>
             <a href="?page={{ page_obj.next_page_number }}" class="page-link next-btn">
             NEXT &raquo;</a

@@ -14,17 +14,16 @@
           <h5 class="card-title">{{ webinar.title }}</h5>
           <div class="d-none d-md-block">
             {% if "placeholder" in webinar.featured_image.url %}
+            <!-- Placeholder image for webinar cards -->
             <img
               src="https://res.cloudinary.com/dqphba816/image/upload/v1700259476/DSC3050-scaled_x7dfgm.jpg"
               class="img-fluid"
-              alt="Webinar Image"
-            />
+              alt="Webinar Image">
             {% else %}
             <img
               src="{{ webinar.featured_image.url }}"
               class="img-fluid"
-              alt="small image of the location in the heading"
-            />
+              alt="small image of the location in the heading">
             {% endif %}
           </div>
           <p class="card-text mt-3">
@@ -58,8 +57,8 @@
               <select
                 class="dropdown-select"
                 id="total_viewers"
-                name="total_viewers"
-              >
+                name="total_viewers">
+                
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
