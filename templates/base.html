@@ -78,6 +78,8 @@
                     <button type="button" class="btn btn-danger me-2" data-toggle="modal" data-target="#signOutModal">
                         Sign Out
                     </button>
+                </span>
+            </form>
     
                     {% else %}
     
@@ -102,11 +104,8 @@
                     <button type="button" class="btn admin-btn px-3 me-2 mr-2 ml-2">
                         <a aria-current="Admin page" href="{% url 'admin:index' %}">Admin
                         </a>
-                    </button>
-    
+                    </button>  
                     {% endif %}
-                </span>
-            </form>
         </div>
     </nav>
 
