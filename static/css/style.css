@@ -1,4 +1,6 @@
 
+/* Page styles */
+
 body {
     background-color: #69c4f8;
     margin: 0;
@@ -26,11 +28,6 @@ body {
 .navbar-nav .nav-link {
     font-weight: bold;
     margin-left: 2px;
-}
-
-.signup-in a {
-    text-decoration: none;
-    color: white;
 }
 
 /* Hero image and text */
@@ -101,7 +98,7 @@ body {
     color: black;
 }
 
-/* Image with text inside */
+/* Location heading and text*/
 
 .location-heading {
     font-size: 250%;
@@ -112,11 +109,43 @@ body {
     font-size: 20px;
 }
 
+/* Text border (white background) */
+
 .content-border {
     border: 2px solid black;
     padding: 20px;
     background-color: white;
     height: fit-content;
+}
+
+/* Footer */
+
+.footer-text {
+    color: black;
+}
+
+/* Images */
+
+.img-fluid {
+    max-height: 800px;
+}
+
+/* About page heading */
+
+.about-headings {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+/* All buttons */
+
+.webinar-link {
+    align-items: center;
+}
+
+.signup-in a {
+    text-decoration: none;
+    color: white;
 }
 
 .btn-like {
@@ -135,23 +164,6 @@ body {
     color: #fff;
 }
 
-.footer-text {
-    color: black;
-}
-
-.img-fluid {
-    max-height: 800px;
-}
-
-.about-headings {
-    font-weight: bolder;
-    font-size: 40px;
-}
-
-.webinar-link {
-    align-items: center;
-}
-
 .next-btn {
     text-decoration: none;
     background-color: #70eb8c;
@@ -168,7 +180,15 @@ body {
 
 .admin-btn {
     background-color: #70eb8c;
+}
+
+.admin-btn:hover {
+    background-color: #68be7c;
+}
+
+.admin-btn a {
     color: black;
+    text-decoration: none;
 }
 
 .helptext {
