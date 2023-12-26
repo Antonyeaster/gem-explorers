@@ -6,8 +6,8 @@
   <head>
     <title>Gem Explorers</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
       rel="stylesheet">
@@ -81,58 +81,57 @@
           </li>
           {% endif %}
         </ul>
-        {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
 
 <!-- Username top right corner-->
-        <form class="form-inline my-2 my-lg-0">
-          <span class="navbar-text ml-2">
+            <form class="form-inline my-2 my-lg-0">
+            <span class="navbar-text ml-2">
+                Welcome {{ user.username | capfirst }}
+                <i class="fa-solid fa-user"></i>
 
-            Welcome {{ user.username | capfirst }}
-            <i class="fa-solid fa-user"></i>
+                <!-- Sign out button-->
 
-            <!-- Sign out button-->
+                    <button
+                    type="button"
+                    class="btn btn-danger me-2"
+                    data-toggle="modal"
+                    data-target="#signOutModal">
+                    Sign Out
+                    </button>
 
-                <button
-                type="button"
-                class="btn btn-danger me-2"
-                data-toggle="modal"
-                data-target="#signOutModal">
-                Sign Out
-                </button>
-
-                {% else %}
+            {% else %}
 
                 <!-- Sign in button-->
 
-                <button
-                type="button"
-                class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
-                <a href="{% url 'account_login' %}">Sign In</a>
-                </button>
+                    <button
+                    type="button"
+                    class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
+                    <a href="{% url 'account_login' %}">Sign In</a>
+                    </button>
 
                 <!-- Sign up button-->
 
-                <button
-                type="button"
-                class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
-                <a href="{% url 'account_signup' %}">Sign Up</a>
-                </button>
+                    <button
+                    type="button"
+                    class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
+                    <a href="{% url 'account_signup' %}">Sign Up</a>
+                    </button>
 
-                {% endif %}
+            {% endif %}
 
-                {% if user.is_superuser %}
+            {% if user.is_superuser %}
 
                 <!-- Admin button-->
 
-                <button type="button" class="btn admin-btn px-3 me-2 mr-2 ml-2">
-                <a aria-current="Admin page" href="{% url 'admin:index' %}"
-                    >Admin
-                </a>
-                </button>
+                    <button type="button" class="btn admin-btn px-3 me-2 mr-2 ml-2">
+                    <a aria-current="Admin page" href="{% url 'admin:index' %}"
+                        >Admin
+                    </a>
+                    </button>
 
-                {% endif %}
-            </span>
-        </form>
+            {% endif %}
+                </span>
+            </form>
       </div>
     </nav>
 
