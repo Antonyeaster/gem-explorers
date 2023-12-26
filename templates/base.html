@@ -64,25 +64,25 @@
                     <a class="nav-link" href="{% url 'my-bookings' %}">Bookings</a>
                 </li>
                 {% endif %}
-            </ul>
-            {% if user.is_authenticated %}
     
-            <!-- Username top right corner-->
-            <form class="form-inline my-2 my-lg-0">
-                <span class="navbar-text ml-2">
-                    Welcome {{ user.username | capfirst }}
-                    <i class="fa-solid fa-user"></i>
+                {% if user.is_authenticated %}
     
-                    <!-- Sign out button-->
+                <!-- Username top right corner-->
+                <form class="form-inline my-2 my-lg-0">
+                    <span class="navbar-text ml-2">
+                        Welcome {{ user.username | capfirst }}
+                        <i class="fa-solid fa-user"></i>
     
-                    <button type="button" class="btn btn-danger me-2" data-toggle="modal" data-target="#signOutModal">
-                        Sign Out
-                    </button>
-                </span>
-            </form>
+                        <!-- Sign out button-->
     
-                    {% else %}
+                        <button type="button" class="btn btn-danger me-2" data-toggle="modal" data-target="#signOutModal">
+                            Sign Out
+                        </button>
+                    </span>
+                </form>
     
+                {% else %}
+                <ul class="mb-0">
                     <!-- Sign in button-->
     
                     <li class="btn btn-primary px-3 me-2 mr-2 ml-2 signup-in">
@@ -95,17 +95,21 @@
                         <a href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
     
-                    {% endif %}
+                </ul>
     
-                    {% if user.is_superuser %}
+                {% endif %}
     
-                    <!-- Admin button-->
+                {% if user.is_superuser %}
     
+                <!-- Admin button-->
+                <ul class="mb-0">
                     <li class="btn admin-btn px-3 me-2 mr-2 ml-2">
                         <a aria-current="Admin page" href="{% url 'admin:index' %}">Admin
                         </a>
-                    </li>  
-                    {% endif %}
+                    </li>
+                </ul>
+                {% endif %}
+            </ul>
         </div>
     </nav>
 
