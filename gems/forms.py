@@ -3,7 +3,9 @@ from django import forms
 from allauth.account.forms import SignupForm
 from django.core.validators import MaxLengthValidator
 
-""" https://stackoverflow.com/questions/50548685/how-to-add-max-length-to-allauth-username"""
+""" User the following link to help write the code for max length username
+https://stackoverflow.com/questions/50548685/how-to-add-max-
+length-to-allauth-username"""
 
 
 class CustomSignupForm(SignupForm):

@@ -2,19 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
-"""Blog Post"""
+"""Blog posts"""
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-"""Post model"""
-
 
 class Post(models.Model):
 
-    """ All fields required to create a post in
-    the blog section. """
+    """ Post model - all fields required for creating a blog post using
+    cloudinary for the featured image and a ordering of most recent
+    posts displayed first """
 
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
@@ -43,8 +41,9 @@ class Post(models.Model):
 
 class Comment(models.Model):
 
-    """ For commenting on the posts in the blog section, 
-    approval is required before the post is published"""
+    """ For commenting on the posts in the blog section,
+    approval is required before the post is published and comments are
+    ordered in newest posts first """
 
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
@@ -68,7 +67,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Webinar(models.Model):
 
-    """ All fields required to create a webinar advert """
+    """ Webinar model - all fields required for creating a webinar post using
+    cloudinary for the featured image and a ordering of most recent
+    webinars displayed first """
 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -91,7 +92,8 @@ class Webinar(models.Model):
 
 class Timestamp(models.Model):
 
-    """Webinar booking time (No double bookings)"""
+    """Timestamp model - linked with Webinar model for correct webinar to
+    timestamp. Unique constraint to ensure there are no double bookings"""
 
     webinar = models.ForeignKey(
         Webinar, on_delete=models.CASCADE, related_name='approved_webinar')
@@ -115,9 +117,10 @@ class Timestamp(models.Model):
 
 class Booking(models.Model):
 
-    """ All required fields to book a webinar, webinar must be approved 
-    before displaying in bookings page"""
-    
+    """ Booking model - Linked with the user that created the booking.
+    Linked with the timestamp the user selected. Unique constraint to
+    ensure only one booking per user and webinar"""
+ 
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_bookings')
     webinar = models.ForeignKey(

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.http import HttpResponseRedirect, HttpResponse, HttpResponseForbidden
+from django.http import (
+    HttpResponseRedirect, HttpResponse, HttpResponseForbidden)
 from django.views import generic, View
 from .models import Post, Webinar, Timestamp, Booking, Comment
 from .forms import CommentForm
@@ -24,8 +25,8 @@ def contact(request):
 
 class AdminQuickDeleteComment(View):
 
-    """ https://www.youtube.com/watch?v=CIR2QhX5mqA 
-    for help with deleting comment on frontend """
+    """ Used the following link for help with admin deleting comments from the
+    frontend comment box https://www.youtube.com/watch?v=CIR2QhX5mqA"""
 
     def is_superuser(self):
         return self.request.user.is_superuser
@@ -51,7 +52,8 @@ class AdminQuickDeleteComment(View):
 
 class PostList(generic.ListView):
 
-    """Create post list on index page with 6 posts per page"""
+    """Create post list on index page with 6 posts per page.
+    Ordering in newest first"""
 
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -64,7 +66,8 @@ class PostList(generic.ListView):
 
 class WebinarList(generic.ListView):
 
-    """Create webinar list within the webinars page with 4 posts per page"""
+    """Create webinar list within the webinars page with 6 posts per page.
+    Ordering in newest first"""
 
     model = Webinar
     queryset = Webinar.objects.filter(status=1).order_by('-created_on')
@@ -77,7 +80,7 @@ class WebinarList(generic.ListView):
 
 class WebinarDetail(View):
 
-    """ To display webinar detail for user to read then book """
+    """ To display webinar with timestamps available for the user to book """
 
     def get(self, request, slug, *args, **kwargs):
         webinar = get_object_or_404(Webinar, slug=slug)
@@ -96,8 +99,11 @@ class WebinarDetail(View):
 
 class Book(View):
 
-    """ For making a booking and selecting the amount of viewers attending
-    must be signed in"""
+    """ For making a booking and selecting the amount of viewers attending.
+    User must be signed in, if not the user is redirected to the sign in page.
+    Total views has to be a minimum of 1. All ready booked users will be
+    redirected to a page informing them the booking is already booked and
+    waiting approval"""
 
     def get(self, request, timestamp_id):
         timestamp = get_object_or_404(Timestamp, id=timestamp_id)
@@ -124,8 +130,8 @@ class Book(View):
                     'pending_approval': True
                 })
             else:
-                # if not authenticated, 
-                # send user to login page with error message
+                # if not authenticated,
+                # # send user to login page with error message
                 messages.error(
                     request, 'You need to be signed in to book a webinar.')
                 return redirect('account_login')
@@ -141,7 +147,9 @@ class Book(View):
 
 class UpdateBooking(View):
 
-    """ To update webinar viewers amount """
+    """ If the booking has been approved, update booking is available,
+    once updated the users booking page will refresh for the new amount
+    of viewers """
 
     def post(self, request, booking_id):
         booking_update = get_object_or_404(
@@ -157,7 +165,8 @@ class UpdateBooking(View):
 
 class MyBooking(View):
 
-    """ For viewing bookings once they have been approved by admin """
+    """ For viewing bookings once they have been approved by admin. Delete the
+    booking and the users booking will update to a updated list of bookings"""
 
     def get(self, request):
         booking_approved = Booking.objects.filter(
@@ -181,12 +190,15 @@ class MyBooking(View):
         return redirect('my-bookings')
 
 
-""" location detail page including likes and comments """
+""" location detail """
 
 
 class PostDetail(View):
 
-    """ For displaying the loaction detail related to the post """
+    """ For displaying the loaction detail related to the post.
+    Likes being displayed linked with the user id. Comments being displayed
+    with most recent first. Comments being checked if valid and informing
+    the user of a successful comment or unsuccessful comment """
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -208,7 +220,7 @@ class PostDetail(View):
             },
         )
 
-    """ To create a comment and display users details"""
+    """ Posting comments """
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -253,7 +265,8 @@ class PostDetail(View):
 
 class PostLike(View):
 
-    """ For liking a post and also removing the like """
+    """ For liking a post and also removing the like within the
+    blog post post """
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -264,26 +277,3 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('location_detail', args=[slug]))
-
-
-""" https://medium.com/@yildirimabdrhm/python-django-handling-custom-error-page-807087352bea """
-
-
-def error_404(request, exception):
-    """ 404 Page Not Found """
-    return render(request, 'errors/404.html', status=404)
-
-
-def error_500(request):
-    """ 500 Internal Server Error """
-    return render(request, 'errors/500.html', status=500)
-
-
-def error_403(request, exception):
-    """ 403 Forbidden """
-    return render(request, 'errors/403.html', status=403)
-
-
-def error_400(request, exception):
-    """ 400 Bad Request """
-    return render(request, 'errors/400.html', status=400)
