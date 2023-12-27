@@ -66,13 +66,13 @@
                 {% csrf_token %} 
                 
                 {% if liked %}
-                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="Post like">
                     <i class="fa-solid fa-thumbs-up"></i>
                 </button>
 
                 {% else %}
 
-                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="Post not liked">
                     <i class="fa-regular fa-thumbs-up"></i>
                 </button>
 
