@@ -166,11 +166,15 @@ class UpdateBooking(View):
 class MyBooking(View):
 
     """ For viewing bookings once they have been approved by admin. Delete the
-    booking and the users booking will update to a updated list of bookings"""
+    booking and the users booking will update to a updated list of bookings.
+    Used 'https://stackoverflow.com/questions/47899265/
+    order-by-time-of-a-datetime-field-in-django'
+    to help with ordering the bookings by date and time"""
 
     def get(self, request):
         booking_approved = Booking.objects.filter(
-            user=request.user, approved=True)
+            user=request.user, approved=True).order_by(
+                'webinar__date_and_time')
         if booking_approved:
             return render(request, 'my_bookings.html', {
                 'booking_approved': booking_approved,
