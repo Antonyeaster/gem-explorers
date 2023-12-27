@@ -784,9 +784,9 @@ Go back to heroku and add **SECRET_KEY** to the config vars, you can create your
 #### **Your Workspace part 3**
 
 1. In the **settings.py** file use code ![Deployment Instructions](/documentation/deployment/deplyment-instructions.png)
-1. In the **settings.py** remove the original secret key and replace with **SECRET_KEY = os.environ.get('SECRET_KEY')** This will use your secret key from Heroku
-2. Comment out old Database section and add new **See image for the code** ![Old database and new database](/documentation/deployment/deployment-database-code.png)
-3. Once saved, in the terminal you need to make migrations using command **python3 manage.py migrate**
+2. In the **settings.py** remove the original secret key and replace with **SECRET_KEY = os.environ.get('SECRET_KEY')** This will use your secret key from Heroku
+3. Comment out old Database section and add new **See image for the code** ![Old database and new database](/documentation/deployment/deployment-database-code.png)
+4. Once saved, in the terminal you need to make migrations using command **python3 manage.py migrate**
 
 #### **Cloudinary**
 
@@ -804,15 +804,17 @@ Go to your **env.py** file and paste in your cloudinary URL being sure to rememb
 
 #### **Your Workspace part 5**
 
-1. In **settings.py** file add Cloudinary libraries to **INSTALLED_APPS** see image below for ordering of apps as it's important. ![Cloudinary instructions](/documentation/deployment/deployment-cloudinary.png)
+1. In **settings.py** file add Cloudinary libraries to **INSTALLED_APPS** see image below for ordering of apps as it's important. 
+2. ![Cloudinary instructions](/documentation/deployment/deployment-cloudinary.png)
 
-2. Set up static files to use Cloudinary and link templates. See screenshot below ![Cloudinary setup in settings.py](/documentation/deployment/deployment-cloudinary-static.png)
+3. Set up static files to use Cloudinary and link templates. See screenshot below 
+4. ![Cloudinary setup in settings.py](/documentation/deployment/deployment-cloudinary-static.png)
 
-3. Add Heroku Hostname to **ALLOWED_HOSTS** ALLOWED_HOSTS =["_______.herokuapp.com", "YOUR_HOSTNAME"] Your project name goes in the blank space and replace "Your hostname" with the actual host link.
-4. Create 3 new folders **media** **static** **templates**
-5. The create a **Procfile** being sure to use a capital 'P'
-6. In the Procfile add web: **gunicorn ______.wsgi** Your project name goes in the blank space.
-7. Add, Commit and Push your code to Github using **git add .** **git commit -m "Deployment Commit"** **git push**
+5. Add Heroku Hostname to **ALLOWED_HOSTS** ALLOWED_HOSTS =["_______.herokuapp.com", "YOUR_HOSTNAME"] Your project name goes in the blank space and replace "Your hostname" with the actual host link.
+6. Create 3 new folders **media** **static** **templates**
+7. The create a **Procfile** being sure to use a capital 'P'
+8. In the Procfile add web: **gunicorn ______.wsgi** Your project name goes in the blank space.
+9. Add, Commit and Push your code to Github using **git add .** **git commit -m "Deployment Commit"** **git push**
 
 #### **Heroku part 4**
 
