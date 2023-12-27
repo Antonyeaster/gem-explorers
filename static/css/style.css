@@ -152,6 +152,7 @@ body {
     color: #0233d3;
     border: none;
     background: transparent;
+    padding: 0;
 }
 
 .btn-primary {
