@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+
+{% block content %}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
@@ -8,13 +10,13 @@
             <!-- All ready booked webinar -->
             <h1>You've already booked this Webinar</h1>
             <p>Please wait for Admin to approve the booking. This is usually done within 24 hours from when the booking
-                was made. Once the booking is approved it will show up <button class="btn btn-primary"><a href="{% url 'my-bookings' %}">here</a></button></p>
+                was made. Once the booking is approved it will show up <a class="btn btn-primary" href="{% url 'my-bookings' %}">here</a></p>
 
             {% elif pending_approval %}
             <!-- Thank you for booking -->
             <h1>Thank you for your booking!</h1>
             <p>Your booking is pending approval. Please wait for Admin to approve the booking. This is usually done within 24 hours from when the booking
-                was made. Once the booking is approved it will show up <button class="btn btn-primary"><a href="{% url 'my-bookings' %}">here</a></button></p>
+                was made. Once the booking is approved it will show up <a class="btn btn-primary" href="{% url 'my-bookings' %}">here</a></p>
             {% elif approved %}
 
             <h2>Approved Bookings</h2>
@@ -23,17 +25,17 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ booking.webinar.webinar.title }}</h5>
-                    <p class="card-text">Booked for: <strong>{{ booking.webinar.date_and_time }}</strong></p>
-                    <p class="card-text">Number of viewers booked: {{ booking.number_of_viewers }}</p>
+                    <p class="card-text">Booked for: <strong>{{booking.webinar.date_and_time}}</strong></p>
+                    <p class="card-text">Number of viewers booked: {{booking.number_of_viewers}}</p>
 
                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                        data-target="#updateModal{{ booking.id }}">Update</button>
+                        data-target="#updateModal{{booking.id}}">Update</button>
                     
                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#confirmDeleteModal{{ booking.id }}">Delete</button>
+                        data-target="#confirmDeleteModal{{booking.id}}">Delete</button>
                 </div>
                 <!-- Update modal -->
-                <div class="modal fade" id="updateModal{{ booking.id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"
+                <div class="modal fade" id="updateModal{{booking.id}}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -71,7 +73,7 @@
                     </div>
                 </div>
                 <!-- Delete modal -->
-                <div class="modal fade" id="confirmDeleteModal{{ booking.id }}" tabindex="-1" role="dialog"
+                <div class="modal fade" id="confirmDeleteModal{{booking.id}}" tabindex="-1" role="dialog"
                     aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -87,7 +89,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <form method="post" action="{% url 'booking_delete' booking.id %}">
+                                <form method="post" action="{%url 'booking_delete' booking.id %}">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
