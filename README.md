@@ -14,6 +14,7 @@ Gem Exploreres is not about revealing secrets or disrupting the local areas; its
 * [User Experience UX](#user-experience-ux)
 * [Planning](#planning)
   * [Scope](#scope)
+  * 
 * [User Stories](#user-stories)
 * [Design](#design)
   * [Wireframes](#wireframes)
@@ -103,6 +104,10 @@ This site aims to give you the hand you might need to get on the road. This is d
 #### Won't Have
 
 * Add image upload to contact form
+
+## Agile
+
+I Used Agile to create and track my User Stories. I also used issues and milestones to track progress through the project, you can view Agile process is a separate file called [AGILE.md](AGILE.md)
 
 ## User Stories
 
