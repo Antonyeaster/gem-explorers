@@ -148,3 +148,5 @@ Like icon on mobiles while signed in - The like icon on mobile browsers not sign
 ### Known Bugs
 
 There are no current known bugs.
+
+Return to [Readme](README.md)
