@@ -11,13 +11,12 @@ Gem Exploreres is not about revealing secrets or disrupting the local areas; its
 
 ## Contents
 
-* [Planning](#Planning)
-  * [Strategy](#strategy)
+* [User Experience UX](#user-experience-ux)
+* [Planning](#planning)
   * [Scope](#scope)
   * [Agile](#agile)
   * [Sprint Notes](#sprint-notes)
-* [User Experience (UX)](#User-Experience)
-* [User Stories and String](#User-Stories-and-Strings)
+* [User Stories](#user-stories)
 * [Design](#design)
   * [Wireframes](#wireframes)
   * [Relationship Diagrams](#relationship-diagrams)
@@ -41,7 +40,34 @@ Gem Exploreres is not about revealing secrets or disrupting the local areas; its
   * [Bugs](#bugs)
 * [Deployment](#deployment)
 
-### Strategy
+## User Experience UX
+
+Users of this website can expect:
+
+* A user friendly experience for explorers looking to find information in one place.
+* An area to get extensive information in the form of a webinar.
+* Using an intuitive booking section to arrange the webinars.
+* A place to communicate with other explorers by using comments and liking posts.
+* The chance to send their own ideas as suggestions for another post.
+
+This website can help the user achieve these goals by:
+
+* Having clear and intuitive navigation
+* Giving the admin the ability to keep posts up to date and add new ones.
+* Displaying other users comments and allowing users to continue the conversations with more comments.
+* Offering a wide range of available webinar times and dates to suit most lifestyles.
+* A list of current bookings to allow the user to double check when they have booked.
+* Ability to update and delete bookings if things change.
+
+This website:
+
+* Gives the user a wide range of information all in one place.
+* A mixture of buttons and menus to make navigation easy.
+* Gives the user the opportunity to express their feelings by liking and commenting.
+* Gives the user a straight forward experience for changing or deleting their bookings.
+* Gives the user a chance to attend a webinar to receive expert advice on different locations.
+
+## Planning
 
 #### Site Aims
 
@@ -193,16 +219,14 @@ I found the Sprint process very useful for keeping myself on track and always go
 
 ## User Stories
 
-### User Stories and Sprints
-
-* As an Admin I can
+* As an Admin I can...
   * As a site admin I can create. read, update and delete posts so that I can fully manage my blog content
   * As a site admin I can create a draft post so that I can finish creating the post later
   * As a site admin I can choose which comments to approve so that I can check they are appropriate for the blog
   * As a site admin I can approve bookings so that The my bookings page will update the user with there booking
   * As a Site admin I can create a webinar so that users can view which webinar they'd like to attend
 
-* As a User I can
+* As a User I can...
   * As a site user I can read the homepage so that I understand the site purpose from the first page
   * As a site user I can use the navigation bar so that I can navigate to different pages on the site
   * As a site user I can register an account so that I can make bookings, comment on blog posts and like/unlike blog posts
@@ -349,15 +373,15 @@ I used a navigation bar to give the user a simplistic way to navigate the websit
 
  ![Navigation bar (Signed in)](/documentation/features/navbar-signed-in.png)
 
- **Admin**
+#### **Admin**
 
  Admin has access to all the above links with an additional one.
 
-* Admin - This gives the admin for the page a shortcut to the Django administration page, where they can manage.
+* Admin - This gives the admin for the page a shortcut to the Django administration page, where they can manage all posts, comments, webinar post, webinar times, and bookings.
 
  ![Navigation bar (Admin)](/documentation/features/navbar-admin.png)
 
- **Responsive Navigation (Hamburger menu)**
+#### **Responsive Navigation (Hamburger menu)**
 
  The icon on the right hand side gives the users on smaller screens a similar experience to the users on larger screens by making all the links accessible within the icon.
 
@@ -804,10 +828,10 @@ Go to your **env.py** file and paste in your cloudinary URL being sure to rememb
 
 #### **Your Workspace part 5**
 
-1. In **settings.py** file add Cloudinary libraries to **INSTALLED_APPS** see image below for ordering of apps as it's important. 
+1. In **settings.py** file add Cloudinary libraries to **INSTALLED_APPS** see image below for ordering of apps as it's important.
 2. ![Cloudinary instructions](/documentation/deployment/deployment-cloudinary.png)
 
-3. Set up static files to use Cloudinary and link templates. See screenshot below 
+3. Set up static files to use Cloudinary and link templates. See screenshot below
 4. ![Cloudinary setup in settings.py](/documentation/deployment/deployment-cloudinary-static.png)
 
 5. Add Heroku Hostname to **ALLOWED_HOSTS** ALLOWED_HOSTS =["_______.herokuapp.com", "YOUR_HOSTNAME"] Your project name goes in the blank space and replace "Your hostname" with the actual host link.
