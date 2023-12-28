@@ -140,4 +140,4 @@ Sprint 10 was the final sprint and a small one in comparison to the others. I us
 
 I found the Sprint process very useful for keeping myself on track and always going forward instead of going in circles. I still have a lot to learn regarding the process and feel future projects will be better managed with sprints. However, this being my first one, I am very happy with the way it went.
 
-Return to [Readme](/workspaces/gem-explorers/README.md)
+Return to [Readme](README.md)
