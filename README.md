@@ -851,9 +851,12 @@ Go back to heroku and add **SECRET_KEY** to the config vars, you can create your
 
 #### **Your Workspace part 3**
 
-1. In the **settings.py** file use code ![Deployment Instructions](/documentation/deployment/deplyment-instructions.png)
+1. In the **settings.py** file use code
+    * ![Deployment Instructions](/documentation/deployment/deplyment-instructions.png)
+  
 2. In the **settings.py** remove the original secret key and replace with **SECRET_KEY = os.environ.get('SECRET_KEY')** This will use your secret key from Heroku
-3. Comment out old Database section and add new **See image for the code** ![Old database and new database](/documentation/deployment/deployment-database-code.png)
+3. Comment out old Database section and add new **See image for the code** 
+    * ![Old database and new database](/documentation/deployment/deployment-database-code.png)
 4. Once saved, in the terminal you need to make migrations using command **python3 manage.py migrate**
 
 #### **Cloudinary**
@@ -873,16 +876,16 @@ Go to your **env.py** file and paste in your cloudinary URL being sure to rememb
 #### **Your Workspace part 5**
 
 1. In **settings.py** file add Cloudinary libraries to **INSTALLED_APPS** see image below for ordering of apps as it's important.
-2. ![Cloudinary instructions](/documentation/deployment/deployment-cloudinary.png)
+    * ![Cloudinary instructions](/documentation/deployment/deployment-cloudinary.png)
 
-3. Set up static files to use Cloudinary and link templates. See screenshot below
-4. ![Cloudinary setup in settings.py](/documentation/deployment/deployment-cloudinary-static.png)
+2. Set up static files to use Cloudinary and link templates. See screenshot below
+    * ![Cloudinary setup in settings.py](/documentation/deployment/deployment-cloudinary-static.png)
 
-5. Add Heroku Hostname to **ALLOWED_HOSTS** ALLOWED_HOSTS =["_______.herokuapp.com", "YOUR_HOSTNAME"] Your project name goes in the blank space and replace "Your hostname" with the actual host link.
-6. Create 3 new folders **media** **static** **templates**
-7. The create a **Procfile** being sure to use a capital 'P'
-8. In the Procfile add web: **gunicorn ______.wsgi** Your project name goes in the blank space.
-9. Add, Commit and Push your code to Github using **git add .** **git commit -m "Deployment Commit"** **git push**
+3. Add Heroku Hostname to **ALLOWED_HOSTS** ALLOWED_HOSTS =["_______.herokuapp.com", "YOUR_HOSTNAME"] Your project name goes in the blank space and replace "Your hostname" with the actual host link.
+4. Create 3 new folders **media** **static** **templates**
+5. The create a **Procfile** being sure to use a capital 'P'
+6. In the Procfile add web: **gunicorn ______.wsgi** Your project name goes in the blank space.
+7. Add, Commit and Push your code to Github using **git add .** **git commit -m "Deployment Commit"** **git push**
 
 #### **Heroku part 4**
 
@@ -909,4 +912,21 @@ Go to your **env.py** file and paste in your cloudinary URL being sure to rememb
 
 ### Media and Content
 
-* 
+#### Media
+
+Images have been taken from multiple location listed below:
+
+* Canadian rockies [Canadian rockies image](https://www.travelweekly-asia.com/Destination-Travel/World-top-10-hidden-gems-to-travel-to)
+* Rainbow Mountains[Rainbow Mountains image](https://www.forbes.com/sites/trevornace/2016/03/02/rainbow-mountains-china-earths-paint-palette/)
+* Lake Tekaop [Lake Tekapo image](https://www.viator.com/en-GB/Christchurch-attractions/Lake-Tekapo/d400-a16452)
+* Valensole Plateau [Valensole Plateau image](https://www.viator.com/en-GB/Aix-en-Provence-attractions/Valensole-Plateau/overview/d5228-a20516)
+* The Lofoten Islands [The Lofoten Islands image](https://www.muchbetteradventures.com/magazine/the-lofoten-islands-a-photo-guide-to-visiting-the-archipelago-in-norway/)
+* Vatnajökull ice cave [Vatnajökull ice cave image](https://glaciertrips.is/vatnajokull-ice-cave-tour-with-glacier-hike-faq-in-2023/)
+* Three Shires Head [Three Shires Head](https://dualadventures.com/three-shires-head-peak-district-uk/)
+* Hero image used from [Hero image](https://www.pexels.com/)
+* Placeholder image (If post images in not added or a problem with original image) [Placeholder image](https://www.exploreyourworlds.com/2021/01/23/hidden-places/)
+
+#### Content
+
+Content used from multiple locations list below:
+
