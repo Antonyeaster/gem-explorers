@@ -1,60 +1,80 @@
 # Testing
 
-* [Testing](#testing)
-  * [Validators](#validators)
-* [Manual Testing](#manual-testing)
-* [Lighthouse Testing](#lighthouse-testing)
-* [Bugs](#bugs)
+- [Testing](#testing)
+  - [Validators](#validators)
+    - [W3C HTML Validator](#w3c-html-validator)
+    - [CSS Validator](#css-validator)
+    - [JSHint Validator](#jshint-validator)
+    - [CI Python Linter](#ci-python-linter)
+      - [Admin](#admin)
+      - [Forms](#forms)
+      - [Models](#models)
+      - [Project Urls](#project-urls)
+      - [Settings](#settings)
+      - [App Urls](#app-urls)
+      - [Views](#views)
+  - [Manual Testing](#manual-testing)
+  - [Lighthouse Testing](#lighthouse-testing)
+    - [Index Page](#index-page)
+    - [Loaction Detail Page](#loaction-detail-page)
+    - [About Page](#about-page)
+    - [Contact Page](#contact-page)
+    - [Webinar Page](#webinar-page)
+    - [Webinar Detail Page](#webinar-detail-page)
+    - [Booking Page](#booking-page)
+  - [Bugs](#bugs)
+    - [Resolved Bugs](#resolved-bugs)
+    - [Known Bugs](#known-bugs)
 
-#### Validators
+## Validators
 
-#### W3C HTML Validator
+### W3C HTML Validator
 
 After entering my code into the validator, I did receive some information errors, which consisted of forward slashes on tags that do not require a closing tag. This happened while using the built in format tool. Other errors that occurred were button nesting in incorrect places, this was a simple fix and was quickly rectified.
 
 ![W3C HTML Validator](/documentation/testing/w3-html-validator.png)
 
-#### CSS Validator
+### CSS Validator
 
 The CSS validator returned with no errors.
 
 ![CSS Validator](/documentation/testing/css-validator.png)
 
-#### JSHint Validator
+### JSHint Validator
 
 The JSHint validator also came back with no errors; however, I did have to use the comment **jshint esversion: 6** to get rid of one warning. I found the solution to this [here](https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const)
 
 ![JSHint](/documentation/testing/jshint.png)
 
-#### CI Python Linter
+### CI Python Linter
 
 All tests came back with no errors except a white space here and there.
 
-#### **Admin**
+#### Admin
 
 ![Admin](/documentation/testing/ci-python-linter-admin.png)
 
-#### **Forms**
+#### Forms
 
 ![Forms](/documentation/testing/ci-python-linter-forms.png)
 
-#### **Models**
+#### Models
 
 ![Models](/documentation/testing/ci-python-linter-models.png)
 
-#### **Project Urls**
+#### Project Urls
 
 ![Project Urls](/documentation/testing/ci-python-linter-project-urls.png)
 
-#### **Settings**
+#### Settings
 
 ![Settings](/documentation/testing/ci-python-linter-settings.png)
 
-#### **App Urls**
+#### App Urls
 
 ![App Urls](/documentation/testing/ci-python-linter-urls.png)
 
-#### **Views**
+#### Views
 
 ![Views](/documentation/testing/ci-python-linter-views.png)
 
@@ -111,11 +131,9 @@ The lighthouse test results are ok but the performance results on most tests are
 ![Booking Desktop](/documentation/testing/lighthouse-desktop-bookings.png)
 ![Booking Mobile](/documentation/testing/lighthouse-mobile-bookings.png)
 
-</details>
-
 ## Bugs
 
-#### **Resolved Bugs**
+### Resolved Bugs
 
 Hamburger menu - While setting up my navigation bar using bootstrap, I was unable to get my 'hamburger icon' to perform the drop down menu. To fix this, I was required to download a different version of Bootstrap. I had followed one of the walkthrough videos through Code Institute, and the particular nav bar I was using wouldn't work with the version of Bootstrap I had installed.
 
@@ -127,6 +145,6 @@ Comments section - Everything within the comments section was working fine. Howe
 
 Like icon on mobiles while signed in - The like icon on mobile browsers not signed in is lined up with the like count number. However, if the user was to sign in the like button would move across the page while the number count remained in place. To fix this, I noticed the developer tools on Chrome were saying that the icon had a padding of 6px. I changed this within my CSS 'like button' with a value of zero, and now the icon stays in line with the count number.
 
-#### **Known Bugs**
+### Known Bugs
 
 There are no current known bugs.
