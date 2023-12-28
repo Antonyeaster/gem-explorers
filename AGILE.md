@@ -31,6 +31,8 @@ I encountered one issue while attempting to push my code to GitHub: "Updates wer
 
 The sprint was finished in time with all tasks completed.
 
+![Sprint 1](/documentation/screenshots/sprint-one.png)
+
 ### Sprint 2
 
 During Sprint 2, I made the decision to slightly adjust my booking system. This was after going through my plan with my partner and deciding the better approach would be a webinar booking. This way, I felt the information could reach more people and expand the community.
@@ -38,6 +40,8 @@ During Sprint 2, I made the decision to slightly adjust my booking system. This 
 The main goal with this sprint was to get the admin panel up and running with the basic information in place.
 
 I finished this sprint a day early and plan on incorporating the remaining tasks into a later sprint involving the booking system.
+
+![Sprint 2](/documentation/screenshots/sprint-two.png)
 
 ### Sprint 3
 
@@ -47,6 +51,8 @@ During this sprint, I had to keep reminding myself to only do the tasks I had se
 
 I hadn't set a completion date for this sprint as there was some planned maintenance on the codeanywhere workspace over the weekend; however, I managed to finish the sprint before the weekend started.
 
+![Sprint 3](/documentation/screenshots/sprint-three.png)
+
 ### Sprint 4
 
 For this sprint, I wanted to get my blog posts to open with basic HTML and Bootstrap CSS, which I will expand on in a future sprint. Also, to get my 'allauth' installed and wire up the built in templates allauth comes with.
@@ -54,6 +60,8 @@ For this sprint, I wanted to get my blog posts to open with basic HTML and Boots
 This sprint was done very quickly due to the very nice features of the built in allauth templates for (Login, Logout, and Sign Up).
 
 So far in all my sprints, I have managed to finish them much quicker than I anticipated. Due to this, I plan on incorporating more issues per sprint moving forward.
+
+![Sprint 4](/documentation/screenshots/sprint-four.png)
 
 ### Sprint 5
 
@@ -69,6 +77,8 @@ Problems I encountered:
 
 While it was frustrating to come across these problems as small as they were, it felt like a good achievement to troubleshoot myself and work out the problems.
 
+![Sprint 5](/documentation/screenshots/sprint-five.png)
+
 ### Sprint 6
 
 This was the largest spint I have done so far, purely because each part of the sprint was quite a task with plenty to go wrong.
@@ -80,6 +90,8 @@ I mostly used bootstrap templates for components during this sprint. This helped
 
 I finished this sprint within the timeframe I had set for myself.
 
+![Sprint 6](/documentation/screenshots/sprint-six.png)
+
 ### Sprint 7
 
 This sprint was mostly about making certain parts of the site smoother and clearer. Up until now, most of the site has been set up using the bootstrap component templates, which has allowed me to work on functionality as much as possible.
@@ -89,6 +101,8 @@ As mentioned in the user story notes, I decided to make the contact form its own
 As per the previous sprint, I added a modal for the sign out button, this makes the user's sign out experience much quicker.
 
 This milestone was quite a small one in comparison to the previous one but included some important details, which are now starting to bring the site together.
+
+![Sprint 7](/documentation/screenshots/sprint-seven.png)
 
 ### Sprint 8
 
@@ -102,6 +116,8 @@ All footer icons are now open to the correct locations and open in a new tab.
 
 This sprint went to plan, with a few small changes along the way.
 
+![Sprint 8](/documentation/screenshots/sprint-eight.png)
+
 ### Sprint 9
 
 This sprint was mostly getting all lorem text removed and writing in the official content, as well as a few styling changes to the content pages.
@@ -112,9 +128,13 @@ A few minor changes to the webinar post list and detail pages,giving the user in
 
 Adding in all the location details, along with images to match.
 
+![Sprint 9](/documentation/screenshots/sprint-nine.png)
+
 ### Sprint 10
 
 Sprint 10 was the final sprint and a small one in comparison to the others. I used the sprint as a final deployment with some testing. This sprint went completely according to plan, and the final deployment worked the first time. Also, the database is updated according to the website.
+
+![Sprint 10](/documentation/screenshots/sprint-ten.png)
 
 ### Sprint Conclusion
 
