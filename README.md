@@ -725,42 +725,44 @@ Testing has also been done by family and friends, making sure to reach as many d
 ## Lighthouse testing
 
 <details>
-<summary>Lighthouse screenshots</summary>
+    <summary>Lighthouse screenshots</summary>
+<br>
+<p>The lighthouse test results are ok but the performance results on most tests are lower than I'd like. After doing some research, I found that the main performance dips were caused by the deployment site and the installed libraries. However, my main goal was to make sure the accessibility score was high. Making sure the website is working well for screen readers.</p>
   
-#### Index Page
+### Index Page
   
-  ![Index Desktop](/documentation/testing/lighthouse-desktop-index.png)
-  ![Index Mobile](/documentation/testing/lighthouse-mobile-index.png)
+![Index Desktop](/documentation/testing/lighthouse-desktop-index.png)
+![Index Mobile](/documentation/testing/lighthouse-mobile-index.png)
 
-#### Loaction Detail Page
+### Loaction Detail Page
 
-  ![Location Detail Desktop](/documentation/testing/lighthouse-desktop-location-detail.png)
-  ![Location Detail Mobile](/documentation/testing/lighthouse-mobile-location-detail.png)
+![Location Detail Desktop](/documentation/testing/lighthouse-desktop-location-detail.png)
+![Location Detail Mobile](/documentation/testing/lighthouse-mobile-location-detail.png)
 
-#### About Page
+### About Page
   
-  ![About Desktop](/documentation/testing/lighthouse-desktop-about.png)
-  ![About Mobile](/documentation/testing/lighthouse-mobile-about.png)
+![About Desktop](/documentation/testing/lighthouse-desktop-about.png)
+![About Mobile](/documentation/testing/lighthouse-mobile-about.png)
 
-#### Contact Page
+### Contact Page
 
-  ![Contact Desktop](/documentation/testing/lighthouse-desktop-contact.png)
-  ![Contact Mobile](/documentation/testing/lighthouse-mobile-contact.png)
+![Contact Desktop](/documentation/testing/lighthouse-desktop-contact.png)
+![Contact Mobile](/documentation/testing/lighthouse-mobile-contact.png)
 
-#### Webinar Page
+### Webinar Page
 
-  ![Webinar Desktop](/documentation/testing/lighthouse-desktop-webinar.png)
-  ![Webinar Mobile](/documentation/testing/lighthouse-mobile-webinar.png)
+![Webinar Desktop](/documentation/testing/lighthouse-desktop-webinar.png)
+![Webinar Mobile](/documentation/testing/lighthouse-mobile-webinar.png)
 
-#### Webinar Detail Page
+### Webinar Detail Page
 
-  ![Webinar Detail Desktop](/documentation/testing/lighthouse-desktop-webinar-detail.png)
-  ![Webinar Detail Mobile](/documentation/testing/lighthouse-mobile-webinar-detail.png)
+![Webinar Detail Desktop](/documentation/testing/lighthouse-desktop-webinar-detail.png)
+![Webinar Detail Mobile](/documentation/testing/lighthouse-mobile-webinar-detail.png)
 
-#### Booking Page
+### Booking Page
 
-  ![Booking Desktop](/documentation/testing/lighthouse-desktop-bookings.png)
-  ![Booking Mobile](/documentation/testing/lighthouse-mobile-bookings.png)
+![Booking Desktop](/documentation/testing/lighthouse-desktop-bookings.png)
+![Booking Mobile](/documentation/testing/lighthouse-mobile-bookings.png)
 
 </details>
 
@@ -904,3 +906,7 @@ Go to your **env.py** file and paste in your cloudinary URL being sure to rememb
 2. Go to the deploy tab and scroll to the bottom as click **Deploy Branch**
 
 ## Credits
+
+### Media and Content
+
+* 
