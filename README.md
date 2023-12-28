@@ -916,17 +916,38 @@ Go to your **env.py** file and paste in your cloudinary URL being sure to rememb
 
 Images have been taken from multiple location listed below:
 
-* Canadian rockies [Canadian rockies image](https://www.travelweekly-asia.com/Destination-Travel/World-top-10-hidden-gems-to-travel-to)
-* Rainbow Mountains[Rainbow Mountains image](https://www.forbes.com/sites/trevornace/2016/03/02/rainbow-mountains-china-earths-paint-palette/)
-* Lake Tekaop [Lake Tekapo image](https://www.viator.com/en-GB/Christchurch-attractions/Lake-Tekapo/d400-a16452)
-* Valensole Plateau [Valensole Plateau image](https://www.viator.com/en-GB/Aix-en-Provence-attractions/Valensole-Plateau/overview/d5228-a20516)
-* The Lofoten Islands [The Lofoten Islands image](https://www.muchbetteradventures.com/magazine/the-lofoten-islands-a-photo-guide-to-visiting-the-archipelago-in-norway/)
-* Vatnajökull ice cave [Vatnajökull ice cave image](https://glaciertrips.is/vatnajokull-ice-cave-tour-with-glacier-hike-faq-in-2023/)
-* Three Shires Head [Three Shires Head](https://dualadventures.com/three-shires-head-peak-district-uk/)
-* Hero image used from [Hero image](https://www.pexels.com/)
+* [Canadian rockies image](https://www.travelweekly-asia.com/Destination-Travel/World-top-10-hidden-gems-to-travel-to)
+* [Rainbow Mountains image](https://www.forbes.com/sites/trevornace/2016/03/02/rainbow-mountains-china-earths-paint-palette/)
+* [Lake Tekapo image](https://www.viator.com/en-GB/Christchurch-attractions/Lake-Tekapo/d400-a16452)
+* [Valensole Plateau image](https://www.viator.com/en-GB/Aix-en-Provence-attractions/Valensole-Plateau/overview/d5228-a20516)
+* [The Lofoten Islands image](https://www.muchbetteradventures.com/magazine/the-lofoten-islands-a-photo-guide-to-visiting-the-archipelago-in-norway/)
+* [Vatnajökull ice cave image](https://glaciertrips.is/vatnajokull-ice-cave-tour-with-glacier-hike-faq-in-2023/)
+* [Three Shires Head](https://dualadventures.com/three-shires-head-peak-district-uk/)
+* [Hero image](https://www.pexels.com/)
 * Placeholder image (If post images in not added or a problem with original image) [Placeholder image](https://www.exploreyourworlds.com/2021/01/23/hidden-places/)
 
 #### Content
 
-Content used from multiple locations list below:
+Content and inspiration used from multiple locations list below:
+
+* [The Lofoten Islands](https://visitlofoten.com/en/topic/see-and-do/)
+* [Canadian rockies](https://www.discovercanadatours.com/blog/7-amazing-facts-about-the-canadian-rockies/)
+* [Valensole Plateau](https://www.saltinourhair.com/france/valensole/)
+* [Three shires head](https://www.peakdistrict.org/three-shires-head-walk-waterfall/)
+* [Rainbow Mountains](https://www.forbes.com/sites/trevornace/2016/03/02/rainbow-mountains-china-earths-paint-palette/)
+* [Vatnajökull ice cave](https://guidetoiceland.is/book-holiday-trips/glacier-caving-in-vatnajokull)
+* Lake Tekapo was written by myself Antony Easter as it's a location I have explored myself.
+
+### Code inspiration and help
+
+The below links are websites and youtube videos I used for inspiration and help with my code. Links have also been referenced within the code comments.
+
+* The walk through project provided in the Code Institutes course **I Think Therefore I Blog** was used closely to help with the project.
+* [Django Tutorial](https://www.youtube.com/watch?v=aHC3uTkT9r8&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=5)
+* [Django Documentation](https://docs.djangoproject.com/en/5.0/)
+* [Bootstrap Documentation](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* [Frontend Delete Button](https://www.youtube.com/watch?v=CIR2QhX5mqA)
+
+### Acknowledgement
+
 
