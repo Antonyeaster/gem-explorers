@@ -722,6 +722,48 @@ I also used Chrome dev tools to test each page at different sizes to test respon
 
 Testing has also been done by family and friends, making sure to reach as many devices as possible. I have received very positive feedback from these, with minor styling issues raised.
 
+## Lighthouse testing
+
+<details>
+<summary>Lighthouse screenshots</summary>
+  
+#### Index Page
+  
+  ![Index Desktop](/documentation/testing/lighthouse-desktop-index.png)
+  ![Index Mobile](/documentation/testing/lighthouse-mobile-index.png)
+
+#### Loaction Detail Page
+
+  ![Location Detail Desktop](/documentation/testing/lighthouse-desktop-location-detail.png)
+  ![Location Detail Mobile](/documentation/testing/lighthouse-mobile-location-detail.png)
+
+#### About Page
+  
+  ![About Desktop](/documentation/testing/lighthouse-desktop-about.png)
+  ![About Mobile](/documentation/testing/lighthouse-mobile-about.png)
+
+#### Contact Page
+
+  ![Contact Desktop](/documentation/testing/lighthouse-desktop-contact.png)
+  ![Contact Mobile](/documentation/testing/lighthouse-mobile-contact.png)
+
+#### Webinar Page
+
+  ![Webinar Desktop](/documentation/testing/lighthouse-desktop-webinar.png)
+  ![Webinar Mobile](/documentation/testing/lighthouse-mobile-webinar.png)
+
+#### Webinar Detail Page
+
+  ![Webinar Detail Desktop](/documentation/testing/lighthouse-desktop-webinar-detail.png)
+  ![Webinar Detail Mobile](/documentation/testing/lighthouse-mobile-webinar-detail.png)
+
+#### Booking Page
+
+  ![Booking Desktop](/documentation/testing/lighthouse-desktop-bookings.png)
+  ![Booking Mobile](/documentation/testing/lighthouse-mobile-bookings.png)
+
+</details>
+
 ## Bugs
 
 #### **Resolved Bugs**
