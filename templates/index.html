@@ -17,7 +17,10 @@
           <br>
           Discover the beauty of our world. Gem Explorers is here to give you
           the information you need to embrace the hidden gems we have all around
-          us. <strong><a class="hero-text-link" href="{% url 'account_signup' %}">Sign up for free today</a></strong> to join our curious community.
+          us. 
+          {% if not user.is_authenticated %}
+          <strong><a class="hero-text-link" href="{% url 'account_signup' %}">Sign up for free today</a></strong> to join our curious community.
+          {% endif %}
           <br>
         Visit our blog posts below to discover the incredible natural beauties our world has in store for us.
         </p>
