@@ -33,7 +33,7 @@ body {
 /* Hero image and text */
 
 .hero {
-    background-image: url("https://res.cloudinary.com/dqphba816/image/upload/v1703857256/pexels-eberhard-grossgasteiger-534164_6_putkoe.webp");
+    background-image: url('https://res.cloudinary.com/dqphba816/image/upload/v1703860210/hero-image-compressed_s83i15.webp');
     background-size: cover;
     background-position: center;
     height: 100vh;
