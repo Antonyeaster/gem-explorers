@@ -37,6 +37,13 @@ Gem Exploreres is not about revealing secrets or disrupting the local areas; its
 * [Accessibility](#accessibility)
 * [Testing](#testing)
 * [Deployment](#deployment)
+* [Credits](#credits)
+  * [Media and Content](#media-and-content)
+    * [Media](#media)
+    * [Content](#content)
+  * [Code inspiration and help](#code-inspiration-and-help)
+    * [General references](#general-references)
+  * [Acknowledgement](#acknowledgement)
 
 ## User Experience UX
 
@@ -222,11 +229,12 @@ I decided to only use one font, I chose Quicksand font as I felt it had a good a
 * [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) - was used for building a responsive website quickly.
 * [Django](https://www.djangoproject.com/) - was used to build the application.
 * Django allauth was used for user authentication.
-* Django crispy forms was used to render forms
+* Django crispy forms was used to render forms.
 * [EmailJS](https://www.emailjs.com/) - was used to conect the contact form to an email address.
 * [Cloudinary](https://cloudinary.com/ip/gr-sea-gg-brand-home-base?utm_source=google&utm_medium=search&utm_campaign=goog_selfserve_brand_wk22_replicate_core_branded_keyword&utm_term=1329&campaignid=17601148700&adgroupid=141182782954&keyword=cloudinary&device=c&matchtype=e&adposition=&gad_source=1&gclid=CjwKCAiAhJWsBhAaEiwAmrNyqyQ_Ci5KK1n7K-1IzUHKBQBrgo9HYF2VgMGTCPRslAY7pWyZAI96_BoCc0UQAvD_BwE) - was used a to store static files.
 * Summernote for WYSIWYG (What You See Is What You Get), this was used for the content section and description section of Posts and Webinars.
 * [Heroku](https://id.heroku.com/login) - Was used to deploy the site.
+* [TinyPNG](https://tinypng.com/) - Was used to reduce image size
 * WordPad was used for manual testing logging.
 
 ## Features
@@ -564,7 +572,6 @@ I also used [Wave - Web accessibility evaluation tools](https://wave.webaim.org/
 
 I have included testing information in a separate file called [Testing.md](TESTING.md)
 
-
 ## Deployment
 
 ### How to fork
@@ -636,7 +643,7 @@ Go back to heroku and add **SECRET_KEY** to the config vars, you can create your
     * ![Deployment Instructions](/documentation/deployment/deplyment-instructions.png)
   
 2. In the **settings.py** remove the original secret key and replace with **SECRET_KEY = os.environ.get('SECRET_KEY')** This will use your secret key from Heroku
-3. Comment out old Database section and add new **See image for the code** 
+3. Comment out old Database section and add new **See image for the code**
     * ![Old database and new database](/documentation/deployment/deployment-database-code.png)
 4. Once saved, in the terminal you need to make migrations using command **python3 manage.py migrate**
 
@@ -737,6 +744,13 @@ The below links are websites and youtube videos I used for inspiration and help 
 * [Linking a HTML Page](https://stackoverflow.com/questions/46860710/django-linking-a-html-page-to-a-view)
 * [Number Of Viewers Dropdown Menu](https://blog.hubspot.com/website/html-dropdown)
 * [JSHint Warning Fix](https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const)
+  
+#### General references
+
+* [Stack Overflow](https://stackoverflow.com/)
+* [W3C Schools](https://www.w3schools.com/)
+* [Slack Community](https://slack.com/intl/en-gb/help/articles/212681477-Sign-in-to-Slack)
+* [Geeks For Geeks](https://www.geeksforgeeks.org/)
 
 ### Acknowledgement
 
@@ -746,3 +760,9 @@ I would like to acknowledge the following people/communities for their help with
 * My family and friends for taking the time to check the responsiveness on their personal devices.
 * My family for their understanding of the lack of time spent with them over the Chistmas period
 * My mentor David Bowers, for the incredible amount of support and encouragement he brings to our meetings.
+
+### Disclaimer
+
+This website has been made for educational purposes.
+
+[Back to the top](https://github.com/Antonyeaster/gem-explorers/blob/main/README.md#gem-exploreres)
