@@ -734,6 +734,7 @@ The below links are websites and youtube videos I used for inspiration and help 
 * [Admin Button](https://forum.djangoproject.com/t/creating-a-button-for-the-admin-page/15147)
 * [Linking a HTML Page](https://stackoverflow.com/questions/46860710/django-linking-a-html-page-to-a-view)
 * [Number Of Viewers Dropdown Menu](https://blog.hubspot.com/website/html-dropdown)
+* [JSHint Warning Fix](https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const)
 
 ### Acknowledgement
 
