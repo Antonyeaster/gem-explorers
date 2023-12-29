@@ -14,7 +14,7 @@ Gem Exploreres is not about revealing secrets or disrupting the local areas; its
 * [User Experience UX](#user-experience-ux)
 * [Planning](#planning)
   * [Scope](#scope)
-  * 
+  * [Agile](#agile)
 * [User Stories](#user-stories)
 * [Design](#design)
   * [Wireframes](#wireframes)
@@ -31,6 +31,8 @@ Gem Exploreres is not about revealing secrets or disrupting the local areas; its
   * [Sign in](#sign-in)
   * [Sign up](#sign-up)
   * [Sign out](#sign-out)
+  * [Error 404](#error-404)
+  * [Error 500](#error-500)
 * [Future Implementations](#future-implementations)
 * [Accessibility](#accessibility)
 * [Testing](#testing)
