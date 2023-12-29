@@ -16,12 +16,18 @@
   - [Manual Testing](#manual-testing)
   - [Lighthouse Testing](#lighthouse-testing)
     - [Index Page](#index-page)
+    - [Updated Index Page](#updated-index-page)
     - [Loaction Detail Page](#loaction-detail-page)
+    - [Updated Loaction Detail Page](#updated-loaction-detail-page)
     - [About Page](#about-page)
     - [Contact Page](#contact-page)
+    - [Updated Contact Page](#updated-contact-page)
     - [Webinar Page](#webinar-page)
+    - [Updated Webinar Page](#updated-webinar-page)
     - [Webinar Detail Page](#webinar-detail-page)
+    - [Updated Webinar Detail Page](#updated-webinar-detail-page)
     - [Booking Page](#booking-page)
+    - [Updated Booking Page](#updated-booking-page)
   - [Bugs](#bugs)
     - [Resolved Bugs](#resolved-bugs)
     - [Known Bugs](#known-bugs)
@@ -94,42 +100,77 @@ Testing has also been done by family and friends, making sure to reach as many d
 
 ## Lighthouse Testing
 
-The lighthouse test results are ok but the performance results on most tests are lower than I'd like. After doing some research, I found that the main performance dips were caused by the deployment site and the installed libraries. However, my main goal was to make sure the accessibility score was high. Making sure the website is working well for screen readers.
+The lighthouse test results are ok but the performance results on most tests are lower than I'd like. After doing some research, I found that the main performance dips were caused by the deployment site and the installed libraries. I did take some steps to increase the scores, such as image resizing, but this only made a small difference. However, my main goal was to make sure the accessibility score was high. Making sure the website is working well for screen readers.
+
+I also came across an error while running my lighthouse test. This came as a surprise, as the day before I was running the lighthouse tests and I was receiving a SEO score of 100, as is visible in a few of my updated screenshots. However,  when I continued the next day with the tests, it appeared I was receiving an error about a **robots.txt file**. At this stage of the course, this hasn't been part of the learning material. This unfortunately bumped the rest of my scores back down. After speaking to the staff of the course, I was advised that this was not only happening to myself and that it is beyond the scope of this particular project. For this reason, I have decided to leave the scores as they are.
   
 ### Index Page
   
 ![Index Desktop](/documentation/testing/lighthouse-desktop-index.png)
 ![Index Mobile](/documentation/testing/lighthouse-mobile-index.png)
 
+### Updated Index Page
+
+![Updated Index Desktop](/documentation/testing/updated-lighthouse-desktop-index.png)
+![Updated Index Mobile](/documentation/testing/updated-lighthouse-mobile-index.png)
+
 ### Loaction Detail Page
 
 ![Location Detail Desktop](/documentation/testing/lighthouse-desktop-location-detail.png)
 ![Location Detail Mobile](/documentation/testing/lighthouse-mobile-location-detail.png)
+
+### Updated Loaction Detail Page
+
+![Updated Loaction Detail Desktop](/documentation/testing/updated-lighthouse-desktop-location-detail.png)
+
+The location detail mobile lighthouse test had not changed from the original test; for this reason, I have not supplied a screenshot.
 
 ### About Page
   
 ![About Desktop](/documentation/testing/lighthouse-desktop-about.png)
 ![About Mobile](/documentation/testing/lighthouse-mobile-about.png)
 
+The About pages lighthouse tests had not changed from the original tests; for this reason, I have not supplied any screenshots.
+
 ### Contact Page
 
 ![Contact Desktop](/documentation/testing/lighthouse-desktop-contact.png)
 ![Contact Mobile](/documentation/testing/lighthouse-mobile-contact.png)
+
+### Updated Contact Page
+
+![Updated Contact Desktop](/documentation/testing/updated-lighthouse-desktop-contact.png)
+![Updated Contact Mobile](/documentation/testing/updated-lighthouse-mobile-contact.png)
 
 ### Webinar Page
 
 ![Webinar Desktop](/documentation/testing/lighthouse-desktop-webinar.png)
 ![Webinar Mobile](/documentation/testing/lighthouse-mobile-webinar.png)
 
+### Updated Webinar Page
+
+![Updated Webinar Desktop](/documentation/testing/updated-lighthouse-desktop-webinar.png)
+![Updated Webinar Mobile](/documentation/testing/updated-lighthouse-mobile-webinar.png)
+
 ### Webinar Detail Page
 
 ![Webinar Detail Desktop](/documentation/testing/lighthouse-desktop-webinar-detail.png)
 ![Webinar Detail Mobile](/documentation/testing/lighthouse-mobile-webinar-detail.png)
 
+### Updated Webinar Detail Page
+
+![Updated Webinar Detail Desktop](/documentation/testing/updated-lighthouse-desktop-webinar-detail.png)
+![Updated Webinar Detail Mobile](/documentation/testing/updated-lighthouse-mobile-webinar-detail.png)
+
 ### Booking Page
 
 ![Booking Desktop](/documentation/testing/lighthouse-desktop-bookings.png)
 ![Booking Mobile](/documentation/testing/lighthouse-mobile-bookings.png)
+
+### Updated Booking Page
+
+![Updated Booking Desktop](/documentation/testing/updated-lighthouse-desktop-booking.png)
+![Updated Booking Mobile](/documentation/testing/updated-lighthouse-mobile-booking.png)
 
 ## Bugs
 
@@ -147,6 +188,6 @@ Like icon on mobiles while signed in - The like icon on mobile browsers not sign
 
 ### Known Bugs
 
-There are no current known bugs.
+Lighthouse tests - While testing my website using the lighthouse test tool in Chrome Dev Tools, I came across an error regarding a robot.txt file. The test was informing me, "Lighthouse was unable to download the robots.txt file". I had run many lighthouse tests prior to this and did not have the same error. After reaching out to the staff of the course, I was informed this wasn't just happening to myself, and "robots.txt" was beyond the scope of this particular project. For this reason, I left the error within lighthouse and after some research, I acknowledged that this error would not impact my website.
 
 Return to [Readme](README.md)
