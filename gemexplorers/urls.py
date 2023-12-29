@@ -24,4 +24,4 @@ urlpatterns = [
 ]
 
 handler404 = 'gems.views.error_404'
-handler404 = 'gems.views.error_500'
+handler500 = 'gems.views.error_500'
