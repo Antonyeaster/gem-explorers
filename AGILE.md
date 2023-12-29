@@ -69,11 +69,11 @@ As mentioned in my last sprint, I wanted to make this sprint larger by incorpora
 
 Problems I encountered:
 
-* While setting up my navigation, I noticed that the "burger menu" for smaller screens would not work when clicked. To correct this, I ended up using a newer version of Bootstrap, as I had previously set up Bootstrap using the Code Institute walk through video.
+- While setting up my navigation, I noticed that the "burger menu" for smaller screens would not work when clicked. To correct this, I ended up using a newer version of Bootstrap, as I had previously set up Bootstrap using the Code Institute walk through video.
 
-* At some stage between setting up my static/css and sprint 5, I managed to move the folder by accident into my gems app, causing the path to be incorrect. At first, I thought it had been deleted, so I created a new one in the correct place. However, this still didn't work until I found the original one, so when I moved it to the correct location, I deleted the duplicated one.
+- At some stage between setting up my static/css and sprint 5, I managed to move the folder by accident into my gems app, causing the path to be incorrect. At first, I thought it had been deleted, so I created a new one in the correct place. However, this still didn't work until I found the original one, so when I moved it to the correct location, I deleted the duplicated one.
 
-* While setting up my contact form, I had trouble connecting my form to emailjs. After going back over my notes and through the walkthrough, I managed to understand the process better and got everything wired up properly.
+- While setting up my contact form, I had trouble connecting my form to emailjs. After going back over my notes and through the walkthrough, I managed to understand the process better and got everything wired up properly.
 
 While it was frustrating to come across these problems as small as they were, it felt like a good achievement to troubleshoot myself and work out the problems.
 
