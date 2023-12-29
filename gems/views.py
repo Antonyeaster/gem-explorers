@@ -284,8 +284,18 @@ class PostLike(View):
 
 
 def error_404(request, exception):
+
     """"
     Handles HTTP 404 errors
     """
 
     return render(request, '404.html')
+
+
+def error_500(request, exception):
+
+    """"
+    Handles HTTP 500 errors
+    """
+
+    return render(request, '500.html')

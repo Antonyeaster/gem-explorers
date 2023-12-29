@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container error-page">
+  <div class="row justify-content-center content-border">
+    <div class="col-md-8">
+      <h1 class="text-center">Server Error - 500</h1>
+      <p class="text-center">
+        There seems to have been an issue. Nevermind these things happen.
+        <br>
+        You may have been attempting to access our registered user features only. 
+        If this is true please use our <a class="btn btn-primary" href="{% url 'account_login' %}">Sign In</a> 
+        or <a class="btn btn-primary" href="{% url 'account_signup' %}">Sign Up</a> to unlock these features, it's all free to use.
+        </p>
+      <p class="text-center">Please return <a class="btn btn-primary" href="{% url 'home' %}">Home</a> to start again.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
