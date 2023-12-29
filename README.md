@@ -525,6 +525,18 @@ Once the user has signed out, a success message will be displayed at the top of 
 
 ![Signed out successfully](/documentation/features/successfully-signed-out.png)
 
+### Error 404
+
+If the user encounters a **Page Not Found** error page they will have the option to return home.
+
+![Error 404](/documentation/screenshots/error-404.png)
+
+### Error 500
+
+If the user encounters a **Server Error** error page, they will have the option to return home. Or they have the option to go to the sign up page or sign in page. In case they were trying to access features only registered users can use.
+
+![Error 500](/documentation/screenshots/error-500.png)
+
 ## Future Implementations
 
 In the future, I would like to add the following features:
