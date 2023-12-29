@@ -67,7 +67,9 @@
           </div>
         </div>
       </div>
+    {% if not user.is_authenticated %}
     <span class="mt-4">Don't have an account? <a class="link btn btn-primary" href="{% url 'account_signup' %}">Sign up here</a></span>
+    {% endif %}
     </div>
   </div>
 </div>
