@@ -22,3 +22,5 @@ urlpatterns = [
     path('', include('gems.urls'), name='gems_urls'),
     path('accounts/', include('allauth.urls')),
 ]
+
+handler404 = 'gems.views.error_404'
