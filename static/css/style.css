@@ -192,9 +192,13 @@ body {
     text-decoration: none;
 }
 
+/* Remove forgot password included with allauth */
+
 .helptext {
     display: none;
 }
+
+/* Error pages */
 
 .error-page {
     margin-top: 50px;
