@@ -1,8 +1,14 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-<div class="container">
-<h1>Page not found</h1>
+<div class="container-fluid mt-4">
+  <div class="row bg-color-contact justify-content-center content-border">
+    <div class="col-lg-6">
+      <h1 class="text-center">Page Not Found</h1>
+      <p class="text-center">
+        Unfortunatly an error has occured. Please return <a class="btn btn-primary" href="{% url 'home' %}">Home</a> to start again.
+      </p>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}
