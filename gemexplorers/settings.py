@@ -35,7 +35,8 @@ DEBUG = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['gem-explorers-7dfdfea9b382.herokuapp.com',
-                 '8000-antonyeaster-gem-explore-b2vel7wqpb.us2.codeanyapp.com']
+                 '8000-antonyeaster-gem-explore-b2vel7wqpb.us2.codeanyapp.com','localhost',
+    '127.0.0.1',]
 
 
 # Application definition
